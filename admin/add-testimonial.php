@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+<!-- Mirrored from themes.pixelstrap.com/fastkart/back-end/add-new-testimonial.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 05:07:03 GMT -->
+
+<head>
+    <?php include('include/head_admin.php');
+
+
+    $name = '';
+    $comment = '';
+
+    if (isset($_GET['id']) && $_GET['id'] != '') {
+        $id = get_safe_value($con, $_GET['id']);
+        $image_required = '';
+        $res = mysqli_query($con, "select * from testimonial where id='$id'");
+        $check = mysqli_num_rows($res);
+        if ($check > 0) {
+            $row = mysqli_fetch_assoc($res);
+            $name = $row['name'];
+            $comment = $row['comment'];
+        } else {
+            header('location:all-testimonial.php');
+            die();
+        }
+    }
+
+    if (isset($_POST['submit_testimonial'])) {
+        // prx($_POST);
+        $name = get_safe_value($con, $_POST['name']);
+        $comment = get_safe_value($con, $_POST['comment']);
+
+
+
+        $msg = "";
+
+        if ($msg == '') {
+            if (isset($_GET['id']) && $_GET['id'] != '') {
+
+                mysqli_query($con, "UPDATE `testimonial` SET `name`='$name', `comment`='$comment' WHERE `id`='$id'");
+            } else {
+             
+                $insert_query = "INSERT INTO `testimonial` (`name`, `comment`) VALUES ('$name','$comment')";
+                mysqli_query($con, $insert_query);
+            }
+            header('location:all-testimonial.php');
+            die();
+        }
+    }
+    function generate_seo_friendly_title($title)
+    {
+        // Convert the title to lowercase
+        $title = strtolower($title);
+
+        // Replace spaces with dashes
+        $title = str_replace(' ', '-', $title);
+
+        // Remove special characters
+        $title = preg_replace('/[^A-Za-z0-9\-]/', '', $title);
+
+        return $title;
+    }
+    ?>
+</head>
+
+<body>
+    <!-- tap on top start -->
+    <div class="tap-top">
+        <span class="lnr lnr-chevron-up"></span>
+    </div>
+    <!-- tap on tap end -->
+
+    <!-- page-wrapper start -->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+        <!-- Page Header Start-->
+        <?php include('include/header_admin.php'); ?>
+        <!-- Page Header Ends-->
+
+        <!-- Page Body start -->
+        <div class="page-body-wrapper">
+            <!-- Page Sidebar Start-->
+            <?php include('include/sidebar_admin.php'); ?>
+            <!-- Page Sidebar Ends-->
+
+            <div class="page-body">
+
+                <!-- New Product Add Start -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-sm-8 m-auto">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header-2">
+                                                <h5>Testimonial</h5>
+                                            </div>
+                                            <form method="post" enctype="multipart/form-data">
+                                                <div class="theme-form theme-form-2 mega-form">
+                                                    <div class="mb-4 row align-items-center">
+                                                        <label class="form-label-title col-sm-3 mb-0">Name</label>
+                                                        <div class="col-sm-9">
+                                                            <input class="form-control" name="name" type="text" placeholder="Name" value="<?php echo $name ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4 row align-items-center">
+                                                        <label class="form-label-title col-sm-3 mb-0">Comment</label>
+                                                        <div class="col-sm-9">
+                                                            <input class="form-control" name="comment" type="text" placeholder="Comment" value="<?php echo $comment ?>" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-solid" name="submit_testimonial" type="submit">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Product Add End -->
+
+                <!-- footer Start -->
+                <?php include('include/footer_admin.php'); ?>
+                <!-- footer En -->
+            </div>
+            <!-- Container-fluid End -->
+        </div>
+        <!-- Page Body End -->
+    </div>
+    <!-- page-wrapper End -->
+
+    <?php include('include/foot_admin.php'); ?>
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/fastkart/back-end/add-new-testimonial.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 05:07:04 GMT -->
+
+</html>

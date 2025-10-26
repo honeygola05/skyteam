@@ -1,0 +1,2 @@
+[25-Oct-2024 06:14:56 UTC] PHP Warning:  file_get_contents(https://raw.githubusercontent.com/juliushong/shell-bd/main/obatkuat.php): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/satyugproducts/public_html/admin/assets/css/z3cfdt/index.php on line 11
