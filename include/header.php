@@ -634,7 +634,7 @@
                     </div>
 
 
-                    <?php
+                    <?php   
                     if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
                     ?>
                         <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
