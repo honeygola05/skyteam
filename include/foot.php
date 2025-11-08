@@ -1402,17 +1402,37 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 
-    // Use datepicker on the date inputs
-    $("input[type=date]").datepicker({
-    dateFormat: 'yy-mm-dd',
-    onSelect: function(dateText, inst) {
-        $(inst).val(dateText); // Write the value in the input
-    }
-    });
+    $(function () {
+        var today = new Date();
 
-    // Code below to avoid the classic date-picker
-    $("input[type=date]").on('click', function() {
-    return false;
+        // Departure date
+        $('[name="departure_date"]').datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: today,
+            onSelect: function (selectedDate) {
+                var departDate = $(this).datepicker('getDate');
+
+                // Set minDate for return date as selected departure date
+                $('[name="return_date"]').datepicker('option', 'minDate', departDate);
+
+                // If return date is before the new departure date, reset it
+                var currentReturn = $('[name="return_date"]').datepicker('getDate');
+                if (currentReturn && currentReturn < departDate) {
+                    $('[name="return_date"]').datepicker('setDate', departDate);
+                }
+            }
+        });
+
+        // Return date
+        $('[name="return_date"]').datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: today
+        });
+
+        // Prevent default browser datepicker
+        $("input[type=date]").on('click', function (e) {
+            e.preventDefault();
+        });
     });
 
     function setReturnDateVisibility() {

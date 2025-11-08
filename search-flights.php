@@ -17,6 +17,7 @@ $flightSearchResult = getFlightSearchResult($departure_from, $arrival_to, $depar
 //     $flightSearchResult = predefinedOneWayTrip(); // Use the predefined response for testing
 // }
 
+
 if(!isset($flightSearchResult)){
     header('Location: ../');
     exit;

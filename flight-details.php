@@ -22,9 +22,10 @@ if ($shoppingResponseID !== null && $offerID !== null) {
 
         // seating plan api call
         $seatingPlan          = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+
         $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['ColumnLayOut'];
         $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['RowInfo'];
-        $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['WingRow'];
+        $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['WingRow'] ?? [];
         $rows                 = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['Rows'];
         $aisleIndex           = 0;
         foreach ($columnLayout as $index => $column) {
@@ -206,8 +207,6 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                 <div class="plane-body">
                                                     <?php
                                                     $totalCols = count($rows);
-                                                    $wingStart = $wingRow['Start'];
-                                                    $wingEnd   = $wingRow['End'];
 
                                                     foreach ($rows as $index => $row): ?>
                                                         <div class="seat-column">
@@ -229,7 +228,12 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                     <?php endforeach; ?>
                                                 </div>
                                                 <span>Windows this side</span>
-                                                <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
+                                                <?php if(!empty($wingRow)){ 
+                                                    $wingStart = $wingRow['Start'];
+                                                    $wingEnd   = $wingRow['End'];
+                                                    ?>
+                                                    <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
+                                                <?php } ?>
                                                 <div class="legend">
                                                     <span><span class="legend-box available-box"></span> Available</span>
                                                     <span><span class="legend-box booked-box"></span> Booked</span>
