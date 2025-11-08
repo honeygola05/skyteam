@@ -663,6 +663,9 @@ $contact = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM `info_co`"));
                             <div><button class="d-flex items-center icon-menu text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button></div>
                         </div>
                     <?php } else { ?>
+                        <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
+                            <!-- <a href="login.php" class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white">Become An Expert</a> -->
+                            <!-- <a href="#" class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white" id="openLoginModal">Become An Expert</a> -->
                         <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none"> -->
 
                             <a href="signup.php" class="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20">Sign In / Register</a>

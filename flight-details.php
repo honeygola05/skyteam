@@ -20,17 +20,8 @@ if ($shoppingResponseID !== null && $offerID !== null) {
         $stops              = $flightDetails['FlightList']['Flight'][0]['Journey']['Stops'];
         $AircarrierName     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['Name'];
         $AircarrierCode     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['AirlineID'];
-
-        // seating plan api call
-        // $seatingPlan       = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
-        $seatingPlan          = predefinedSeatmap();
-        $offers               = $seatingPlan['AirSeatMapRS']['ALaCarteOffer']['ALaCarteOfferItem'];
-        $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['ColumnLayOut'];
-        $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['RowInfo'];
-        $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['WingRow'] ?? [];
-        $rows                 = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['Rows'];
-        $passengersCount      = count($seatingPlan['AirSeatMapRS']['DataLists']['PassengerList']['Passengers']) ?? 0;
-    } else {
+    }
+    else{
         $error              = $offerDetails['OfferPriceRS']['Errors'];
     }
 } else {
@@ -38,24 +29,20 @@ if ($shoppingResponseID !== null && $offerID !== null) {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
-
 <head>
     <?php include('include/head.php');  ?>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
-
 <body>
     <?php include('include/preloader.php') ?>
     <main>
         <?php include('include/header.php') ?>
-
         <section class="layout-pt-md layout-pb-md bg-light-2 pt-40 pb-40">
             <div class="container">
                 <div class="row y-gap-30">
-                    <div class="col-xl-8 col-lg-8 col-12">
+                    <div class="col-xl-12 col-lg-12">
 
                         <div class="js-accordion pt-40">
                             <?php if (isset($error)): ?>
@@ -176,98 +163,23 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                                         <div class="size-10 border-light rounded-full bg-border"></div>
                                                                     </div>
 
-                                                                    <div class="row">
-                                                                        <div class="col-auto">
-                                                                            <div class="lh-14 fw-500"><?= date('H:i A', strtotime($flightDetail['Arrival']['Time'])) ?></div>
-                                                                        </div>
-                                                                        <div class="col-auto">
-                                                                            <div class="lh-14 fw-500"><?= $flightDetail['Arrival']['AirportName'];  ?> (Terminal <?= $flightDetail['Arrival']['Terminal']['Name'] ?>)</div>
-                                                                        </div>
-                                                                    </div>
+                                                            <div class="row">
+                                                                <div class="col-auto">
+                                                                    <div class="lh-14 fw-500"><?= date('H:i A', strtotime($flightDetail['Arrival']['Time'])) ?></div>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="lh-14 fw-500"><?= $flightDetail['Arrival']['AirportName'];  ?> (Terminal <?= $flightDetail['Arrival']['Terminal']['Name'] ?>)</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-auto text-right md:text-left">
-                                                            <div class="text-14 text-light-1"><?= checkCabinType($offerPricing[0]['OfferItem'][0]['FareComponent'][0]['FareBasis']['CabinType']) ?></div>
-                                                            <div class="text-14 mt-15 md:mt-5">
-                                                                <?= $flightDetail['Equipment']['Name'] ?> (Narrow-body jet)<br>
-                                                                Check-in : <?= $flightDetails['BaggageAllowanceList']['BaggageAllowance'][0]['PieceAllowance']['TotalQuantity'] . ' ' . $flightDetails['BaggageAllowanceList']['BaggageAllowance'][0]['PieceAllowance']['Unit'] ?><br>
-                                                                Seats Left: <?= $offerPricing[0]['OfferItem'][0]['FareComponent'][0]['FareBasis']['SeatLeft'] ?>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <?php endforeach; ?>
-                                        <div class="px-20 py-20 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4 text-center">
-                                            <div class="mt-10">
-                                                <p>Windows this side</p>
-                                                <div class="plane-wrapper">
-                                                    <div class="plane-body">
-                                                    <?php
-                                                    $totalCols = count($rows);
-
-                                                    foreach($rows as $index => $row): ?>
-                                                        <div class="seat-column">
-                                                            <?php foreach($columnLayout as $layout): ?>
-                                                            <?php if($layout['Name'] == "GAP"): ?>
-                                                            <div class='aisle'></div>
-                                                            <?php else: ?>
-                                                            <?php foreach($row['Seat'] as $seatIndex => $seat): ?>
-                                                            <?php  if($seat['Column'] == $layout['Name']): ?>
-                                                            <?php
-                                                                $PaxRef         = $seat['PaxRef'] ?? null;
-                                                                $seatOffer      = $seat['OfferItemRefs'] ?? null;
-                                                                $seatID         = $seat['SeatId'] ?? null;
-                                                                $chargable      = $seat['Chargable'] ?? '0';
-                                                                $available      = $seat['Available'] ?? '0';
-                                                                $class          = $seat['Available'] == 1 ? 'seat' : 'seat booked';
-                                                                $offerDetails   = [];
-                                                                foreach($offers as $index => $offer){
-                                                                    if($seatOffer == $offer['OfferItemID'] && $available == 1){
-                                                                        $offerDetails = $offer;
-                                                                    }
-                                                                }
-                                                            ?>
-                                                            <div class="<?= $class ?>" <?= ($available == 1) ? '' : 'disabled' ?> data-price="<?= ($available == 1) ? $offerDetails['Price']['Total']['BookingCurrencyPrice'] : '0' ?>"  data-seat="<?= $row['Number']. $seat['Column'] ?>"><?= $row['Number']. $seat['Column'] ?></div>
-                                                            <?php endif; ?>
-                                                            <?php endforeach; ?>
-                                                            <?php endif; ?>
-                                                            <?php endforeach; ?>
-                                                        </div>
-                                                    <?php endforeach; ?>
-                                                    </div>
-                                                </div>
-                                                <p>Windows this side</p>
-                                                <?php if(!empty($wingRow)){ 
-                                                    $wingStart = $wingRow['Start'];
-                                                    $wingEnd   = $wingRow['End'];
-                                                    ?>
-                                                    <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
-                                                <?php } ?>
-                                                <div class="legend">
-                                                    <span><span class="legend-box available-box"></span> Available</span>
-                                                    <span><span class="legend-box booked-box"></span> Booked</span>
-                                                    <span><span class="legend-box selected-box"></span> Selected</span>
-                                                    <span><span class="legend-box" style="background:#bfdbfe;border:1px solid #93c5fd;"></span> Wing Area</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="border-light rounded-4 mt-30">
-                                            <div class="py-20 px-30">
-                                                <div class="row justify-between items-center">
-                                                    <div class="col-auto">
-                                                        <div class="fw-500 text-dark-1">Traveller Details</div>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <div class="text-14 text-light-1">
-                                                            <?php
-                                                            $adults = (int)$_GET['adults'];
-                                                            $children = (int)$_GET['children'];
-                                                            $traveller = $adults + $children;
-                                                            ?>
-                                                            <?= $traveller ?> Passenger
-                                                        </div>
+                                                <div class="col-auto text-right md:text-left">
+                                                    <div class="text-14 text-light-1"><?= checkCabinType($offerPricing[0]['OfferItem'][0]['FareComponent'][0]['FareBasis']['CabinType']) ?></div>
+                                                    <div class="text-14 mt-15 md:mt-5">
+                                                        <?= $flightDetail['Equipment']['Name'] ?> (Narrow-body jet)<br>
+                                                        Check-in : <?= $flightDetails['BaggageAllowanceList']['BaggageAllowance'][0]['PieceAllowance']['TotalQuantity'] .' '. $flightDetails['BaggageAllowanceList']['BaggageAllowance'][0]['PieceAllowance']['Unit'] ?><br>
+                                                        Seats Left: <?= $offerPricing[0]['OfferItem'][0]['FareComponent'][0]['FareBasis']['SeatLeft'] ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -400,15 +312,7 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-12">
-                        <div class="js-accordion pt-40 sticky-right-div">
-                            <div class="accordion__item py-30 px-30 bg-white rounded-4 base-tr mt-30">
-                                <div class="accordion__content" style="max-height: 100%;">
+                                    <?php endforeach; ?>
                                     <div class="border-light rounded-4 mt-30">
                                         <div class="py-20 px-30">
                                             <div class="row justify-between items-center">
@@ -451,12 +355,12 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                     </div>
                                 </div>
                             </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="layout-pt-md layout-pb-md bg-dark-2">
             <div class="container">
                 <div class="row y-gap-30 justify-between items-center">
@@ -465,20 +369,17 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                             <div class="col-auto">
                                 <div class="icon-newsletter text-60 sm:text-40 text-white"></div>
                             </div>
-
                             <div class="col-auto">
                                 <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
                                 <div class="text-white">Sign up and we'll send the best deals to you</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-auto">
                         <div class="single-field -w-410 d-flex x-gap-10 y-gap-20">
                             <div>
                                 <input class="bg-white h-60" type="text" placeholder="Your Email">
                             </div>
-
                             <div>
                                 <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
                             </div>
@@ -487,7 +388,6 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                 </div>
             </div>
         </section>
-
         <?php include('include/footer.php') ?>
     </main>
     <?php include('include/foot.php') ?>
