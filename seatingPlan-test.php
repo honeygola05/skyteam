@@ -1,166 +1,164 @@
-<style>
-.plane-body {
-  position: relative;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  padding-top: 40px; /* space for the wings line */
+<?php
+require 'helper.php';
+$shoppingResponseID     = $_GET['shoppingid'] ?? null;
+$offerID                = $_GET['offerid'] ?? null;
+$adults                 = $_GET['adults'] ?? 1;
+$children               = $_GET['children'] ?? 0;
+$cabinClass             = $_GET['cabinclass'] ?? 'Y';
+$tripType               = $_GET['tripType'] ?? 'oneway';
+
+if ($shoppingResponseID !== null && $offerID !== null) {
+    // $seatingPlan       = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+    $seatingPlan          = predefinedSeatmap();
+    $offers               = $seatingPlan['AirSeatMapRS']['ALaCarteOffer']['ALaCarteOfferItem'];
+    $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['ColumnLayOut'];
+    $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['RowInfo'];
+    $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['WingRow'] ?? [];
+    $rows                 = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['Rows'];
+    $passengersCount      = count($seatingPlan['AirSeatMapRS']['DataLists']['PassengerList']['Passengers']) ?? 0;
+    // echo "<pre>";
+    // print_r($passengersCount);
+    // die;
+} else{
+    header('Location: ../');
+    exit;
 }
+?>
 
-/* Example seat layout styling */
-.seat-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+<!DOCTYPE html>
+<html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
 
-.seat {
-  background: #e0f2fe;
-  border: 1px solid #bae6fd;
-  border-radius: 6px;
-  padding: 5px 10px;
-  margin: 2px 0;
-}
+<head>
+    <?php include('include/head.php'); ?>
+</head>
 
-.aisle {
-  height: 10px;
-}
+<body>
+    <?php include('include/preloader.php') ?>
 
-/* Invisible markers */
+    <main>
 
-.wing-line {
-  position: absolute;
-  top: 5px;
-  height: 2px;
-  background: #64748b;
-}
+        <div class="header-margin"></div>
+        <?php include('include/header.php');  ?>
 
-.wing-line span {
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #e5f4ff;
-  padding: 0 6px;
-  font-size: 14px;
-  color: #334155;
-  font-weight: 500;
-}
+        <section class="layout-pt-lg layout-pt-sm bg-light-2">
+            <div class="container-fluid">
+                <div class="row justify-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="px-20 py-20 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4 text-center">
 
-</style>
-<div class="plane-body">
-  <div class="seat-column">
-    <div class="seat" data-seat="10A">10A</div>
-    <div class="seat" data-seat="10B">10B</div>
-    <div class="seat" data-seat="10C">10C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="10D">10D</div>
-    <div class="seat" data-seat="10E">10E</div>
-    <div class="seat" data-seat="10F">10F</div>
-  </div>
-  <div class="wings-start"></div>
-  <div class="seat-column">
-    <div class="seat" data-seat="11A">11A</div>
-    <div class="seat" data-seat="11B">11B</div>
-    <div class="seat" data-seat="11C">11C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="11D">11D</div>
-    <div class="seat" data-seat="11E">11E</div>
-    <div class="seat" data-seat="11F">11F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat" data-seat="12A">12A</div>
-    <div class="seat" data-seat="12B">12B</div>
-    <div class="seat" data-seat="12C">12C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="12D">12D</div>
-    <div class="seat" data-seat="12E">12E</div>
-    <div class="seat" data-seat="12F">12F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat" data-seat="13A">13A</div>
-    <div class="seat" data-seat="13B">13B</div>
-    <div class="seat" data-seat="13C">13C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="13D">13D</div>
-    <div class="seat" data-seat="13E">13E</div>
-    <div class="seat" data-seat="13F">13F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat" data-seat="14A">14A</div>
-    <div class="seat" data-seat="14B">14B</div>
-    <div class="seat" data-seat="14C">14C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="14D">14D</div>
-    <div class="seat" data-seat="14E">14E</div>
-    <div class="seat" data-seat="14F">14F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat" data-seat="15A">15A</div>
-    <div class="seat" data-seat="15B">15B</div>
-    <div class="seat" data-seat="15C">15C</div>
-    <div class="aisle"></div>
-    <div class="seat booked" data-seat="15D">15D</div>
-    <div class="seat booked" data-seat="15E">15E</div>
-    <div class="seat booked" data-seat="15F">15F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat" data-seat="16A">16A</div>
-    <div class="seat" data-seat="16B">16B</div>
-    <div class="seat" data-seat="16C">16C</div>
-    <div class="aisle"></div>
-    <div class="seat booked" data-seat="16D">16D</div>
-    <div class="seat booked" data-seat="16E">16E</div>
-    <div class="seat booked" data-seat="16F">16F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat" data-seat="17A">17A</div>
-    <div class="seat" data-seat="17B">17B</div>
-    <div class="seat" data-seat="17C">17C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="17D">17D</div>
-    <div class="seat" data-seat="17E">17E</div>
-    <div class="seat" data-seat="17F">17F</div>
-  </div>
-  <div class="wings-end"></div>
-  <div class="seat-column">
-    <div class="seat" data-seat="29A">29A</div>
-    <div class="seat" data-seat="29B">29B</div>
-    <div class="seat" data-seat="29C">29C</div>
-    <div class="aisle"></div>
-    <div class="seat" data-seat="29D">29D</div>
-    <div class="seat" data-seat="29E">29E</div>
-    <div class="seat" data-seat="29F">29F</div>
-  </div>
-  <div class="seat-column">
-    <div class="seat booked" data-seat="30A">30A</div>
-    <div class="seat booked" data-seat="30B">30B</div>
-    <div class="seat booked" data-seat="30C">30C</div>
-    <div class="aisle"></div>
-    <div class="seat booked" data-seat="30D">30D</div>
-    <div class="seat booked" data-seat="30E">30E</div>
-    <div class="seat booked" data-seat="30F">30F</div>
-  </div>
-</div>
+                            <div class="plane-wrapper">
+                                <span>Windows this side</span>
+                                <div class="plane-body">
+                                <?php
+                                $totalCols = count($rows);
+                                $wingStart = $wingRow['Start'] ?? null;
+                                $wingEnd   = $wingRow['End'] ?? null;
+
+                                foreach($rows as $index => $row): ?>
+                                    <div class="seat-column">
+                                        <?php foreach($columnLayout as $layout): ?>
+                                        <?php if($layout['Name'] == "GAP"): ?>
+                                          <div class='aisle'></div>
+                                        <?php else: ?>
+                                          <?php foreach($row['Seat'] as $seatIndex => $seat): ?>
+                                          <?php  if($seat['Column'] == $layout['Name']): ?>
+                                          <?php
+                                              $PaxRef         = $seat['PaxRef'] ?? null;
+                                              $seatOffer      = $seat['OfferItemRefs'] ?? null;
+                                              $seatID         = $seat['SeatId'] ?? null;
+                                              $chargable      = $seat['Chargable'] ?? '0';
+                                              $available      = $seat['Available'] ?? '0';
+                                              $class          = $seat['Available'] == 1 ? 'seat' : 'seat booked';
+                                              $offerDetails   = [];
+                                              foreach($offers as $index => $offer){
+                                                  if($seatOffer == $offer['OfferItemID'] && $available == 1){
+                                                      $offerDetails = $offer;
+                                                  }
+                                              }
+                                          ?>
+                                          <div class="<?= $class ?>" <?= ($available == 1) ? '' : 'disabled' ?> data-price="<?= ($available == 1) ? $offerDetails['Price']['Total']['BookingCurrencyPrice'] : '0' ?>"  data-seat="<?= $row['Number']. $seat['Column'] ?>"><?= $row['Number']. $seat['Column'] ?></div>
+                                          <?php endif; ?>
+                                          <?php endforeach; ?>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                                </div>
+                                <span>Windows this side</span>
+                                <?php if(!empty($wingRow)): ?>
+                                    <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
+                                <?php endif; ?>
+                                <div class="seats-and-legends">
+                                    <div id="selected-seats"></div>
+                                    <div class="legend">
+                                        <span><span class="legend-box available-box"></span> Available</span>
+                                        <span><span class="legend-box booked-box"></span> Booked</span>
+                                        <span><span class="legend-box selected-box"></span> Selected</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <?php include('include/footer.php');  ?>
+    </main>
+    <?php include('include/foot.php');  ?>
+</body>
 <script>
-  const plane = document.querySelector('.plane-body');
-const start = document.querySelector('.wings-start');
-const end = document.querySelector('.wings-end');
+    $(document).ready(function() {
+        const maxSeats = <?= $passengersCount; ?>; // limit
+        let selectedSeats = [];
 
-const line = document.createElement('div');
-line.classList.add('wing-line');
-line.innerHTML = '<span>Wings</span>';
-plane.appendChild(line);
+        // Handle seat click
+        $(".seat").on("click", function() {
+            const seat = $(this).data("seat");
 
-function positionWingLine() {
-  const startRect = start.getBoundingClientRect();
-  const endRect = end.getBoundingClientRect();
-  const planeRect = plane.getBoundingClientRect();
+            if ($(this).hasClass("selected")) {
+            // Deselect
+            $(this).removeClass("selected");
+            selectedSeats = selectedSeats.filter(s => s !== seat);
+            } else {
+            if (selectedSeats.length >= maxSeats) {
+                alert(`You can select only ${maxSeats} seats.`);
+                return;
+            }
+            // Select
+            $(this).addClass("selected");
+            selectedSeats.push(seat);
+            }
 
-  line.style.left = (startRect.right - planeRect.left) + 'px';
-  line.style.width = (endRect.left - startRect.right) + 'px';
-}
-positionWingLine();
-window.addEventListener('resize', positionWingLine);
+            updateSelectedSeatsUI();
+        });
 
+        // Update UI for selected seats
+        function updateSelectedSeatsUI() {
+            $("#selected-seats").empty();
+
+            selectedSeats.forEach(seat => {
+            $("#selected-seats").append(
+                `<span class="selected-seat-tag" data-seat="${seat}">
+                ${seat} <span class="close">X</span>
+                </span>`
+            );
+            });
+
+            $("#selected-count").text(selectedSeats.length);
+        }
+
+        // Handle removing from selected list
+        $("#selected-seats").on("click", ".selected-seat-tag", function() {
+            const seat = $(this).data("seat");
+
+            // Remove from array
+            selectedSeats = selectedSeats.filter(s => s !== seat);
+
+            // Unselect in map
+            $(`.seat[data-seat='${seat}']`).removeClass("selected");
+
+            updateSelectedSeatsUI();
+        });
+    });
 </script>
+</html>

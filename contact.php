@@ -18,7 +18,7 @@
     <?php include('include/header.php') ?>
 
 
-    <section data-anim="fade" class="d-flex items-center py-15 border-top-light">
+    <!-- <section data-anim="fade" class="d-flex items-center py-15 border-top-light">
       <div class="container">
         <div class="row y-gap-10 items-center justify-between">
           <div class="col-auto">
@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <div class="ratio ratio-16:9">
       <div class="map-ratio">
@@ -119,17 +119,17 @@
 
           <div class="col-lg-3">
             <div class="text-14 text-light-1">Address</div>
-            <div class="text-18 fw-500 mt-10">328 Queensberry Street, North Melbourne VIC 3051, Australia.</div>
+            <div class="text-18 fw-500 mt-10">12899 76 Ave Unit 204, Surrey, BC V3W 1E6, Canada</div>
           </div>
 
           <div class="col-auto">
             <div class="text-14 text-light-1">Toll Free Customer Care</div>
-            <div class="text-18 fw-500 mt-10">+(1) 123 456 7890</div>
+            <div class="text-18 fw-500 mt-10">+1 (778) 312-2390</div>
           </div>
 
           <div class="col-auto">
             <div class="text-14 text-light-1">Need live support?</div>
-            <div class="text-18 fw-500 mt-10">hi@gotrip.com</div>
+            <div class="text-18 fw-500 mt-10">sales@skyteamtravel.ca</div>
           </div>
 
           <div class="col-auto">
@@ -167,7 +167,8 @@
 
               <div class="text-center mt-30">
                 <h4 class="text-18 fw-500">Best Price Guarantee</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-15 mt-10">With our Best Price Guarantee, you can book confidently knowing you’re getting the most for your money.
+                </p>
               </div>
             </div>
 
@@ -182,7 +183,7 @@
 
               <div class="text-center mt-30">
                 <h4 class="text-18 fw-500">Easy & Quick Booking</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-15 mt-10">With SkyTeam Travel, booking flights and packages is as smooth as your journey should be.</p>
               </div>
             </div>
 
@@ -197,7 +198,7 @@
 
               <div class="text-center mt-30">
                 <h4 class="text-18 fw-500">Customer Care 24/7</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-15 mt-10">At SkyTeam Travel, our support never sleeps. Whether it’s day or night, our travel experts are here to help you — anytime, anywhere.</p>
               </div>
             </div>
 

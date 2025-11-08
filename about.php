@@ -55,7 +55,7 @@
 
               <div class="text-center mt-30">
                 <h4 class="text-18 fw-500">Best Price Guarantee</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-15 mt-10">With our Best Price Guarantee, you can book confidently knowing you’re getting the most for your money.</p>
               </div>
             </div>
 
@@ -70,7 +70,7 @@
 
               <div class="text-center mt-30">
                 <h4 class="text-18 fw-500">Easy & Quick Booking</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-15 mt-10">With SkyTeam Travel, booking flights and packages is as smooth as your journey should be.</p>
               </div>
             </div>
 
@@ -85,7 +85,7 @@
 
               <div class="text-center mt-30">
                 <h4 class="text-18 fw-500">Customer Care 24/7</h4>
-                <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-15 mt-10">At SkyTeam Travel, our support never sleeps. Whether it’s day or night, our travel experts are here to help you — anytime, anywhere.</p>
               </div>
             </div>
 
@@ -99,13 +99,14 @@
       <div class="container">
         <div class="row y-gap-30 justify-between items-center">
           <div class="col-lg-5">
-            <h2 class="text-30 fw-600">About GoTrip.com</h2>
-            <p class="mt-5">These popular destinations have a lot to offer</p>
+            <h2 class="text-30 fw-600">About SkyTeamTravel</h2>
+            <p class="mt-5">Your Ultimate Travel Companion: Embark on Extraordinary Journeys with SkyTeamTravel</p>
 
-            <p class="text-dark-1 mt-60 lg:mt-40 md:mt-20">
-              London is a shining example of a metropolis at the highest peak of modernity and boasts an economy and cultural diversity that’s the envy of other global superpowers.
-              <br><br>
-              Take the opportunity to acquaint yourself with its fascinating history chronicled by institutions like the British Museum as well as see how far it has come by simply riding the Tube and passing by celebrated landmarks like Buckingham Palace, Westminster Abbey, and marvels like Big Ben, the London Eye, and the Tower Bridge.
+            <p class="text-dark-1 mt-20">
+              In a world where travel is more accessible than ever before, SkyTeamTravel has emerged as a beacon of exceptional service and unparalleled experiences. With a relentless commitment to customer satisfaction and a team of travel veterans boasting over 15-20 years of international expertise, we have quickly become a leading player in the travel industry. Specializing in flights, hotels, car rentals, transfers, activities, cruise packages, and vacation packages, SkyTeamTravel is your one-stop shop for crafting memorable journeys that last a lifetime.
+            </p>
+            <p class="text-dark-1 mt-20">
+              SkyTeamTravel's success story is rooted in the vision of its founders, travel veterans with an extensive background in the industry. Drawing from their rich experience at renowned companies like ebookers, CheapOair, Sunny Land Tours, Vantage Travel, and rang7.com, our founders have seamlessly combined their knowledge and expertise to create a travel company that stands out for its excellence.
             </p>
           </div>
 

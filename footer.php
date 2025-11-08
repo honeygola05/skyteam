@@ -7,12 +7,12 @@
 
                     <div class="mt-30">
                         <div class="text-14 mt-30">Toll Free Customer Care</div>
-                        <a href="#" class="text-18 fw-500 text-blue-1 mt-5">+(1) 123 456 7890</a>
+                        <a href="tel:+1(778)312-2390" class="text-18 fw-500 text-blue-1 mt-5">+1 (778) 312-2390</a>
                     </div>
 
                     <div class="mt-35">
                         <div class="text-14 mt-30">Need live support?</div>
-                        <a href="#" class="text-18 fw-500 text-blue-1 mt-5">hi@gotrip.com</a>
+                        <a href="mailto:sales@skyteamtravel.ca" class="text-18 fw-500 text-blue-1 mt-5">sales@skyteamtravel.ca</a>
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
                                 © 2025 Sky Team All rights reserved.
                             </div>
                         </div>
-<!-- 
+                        <!-- 
                         <div class="col-auto">
                             <div class="d-flex x-gap-15">
                                 <a href="#">Privacy</a>
@@ -122,6 +122,7 @@
         </div>
     </div>
 </footer>
+<!-- Login Popup -->
 <!-- Login Popup Modal -->
 <div id="loginModal" style="
   display:none;
@@ -180,13 +181,11 @@
 </div>
 <script>
 // Open popup
-var openLoginModal = document.getElementById("openLoginModal");
-if (openLoginModal) {
-  openLoginModal.addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("loginModal").style.display = "flex";
-  });
-}
+document.getElementById("openLoginModal").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("loginModal").style.display = "flex";
+});
+
 // Close popup
 document.getElementById("closeLoginModal").addEventListener("click", function() {
   document.getElementById("loginModal").style.display = "none";

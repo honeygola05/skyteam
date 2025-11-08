@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
 
-
-<!-- Mirrored from creativelayers.net/themes/gotrip-html/flights-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 05:57:58 GMT -->
-
 <head>
   <?php include('include/head.php') ?>
 </head>
