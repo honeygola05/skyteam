@@ -9,7 +9,8 @@ $cabinClass             = $_GET['cabinclass'] ?? 'Y';
 $tripType               = $_GET['tripType'] ?? 'oneway';
 
 if ($shoppingResponseID !== null && $offerID !== null) {
-    $offerDetails       = getOfferDetails($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+    // $offerDetails       = getOfferDetails($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+    $offerDetails       = predefinedOfferPrice();
 
     if (isset($offerDetails['OfferPriceRS']['Success'])) {
         $shoppingResponseID = $offerDetails['OfferPriceRS']['ShoppingResponseId'];
@@ -21,18 +22,14 @@ if ($shoppingResponseID !== null && $offerID !== null) {
         $AircarrierCode     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['AirlineID'];
 
         // seating plan api call
-        $seatingPlan          = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
-
+        // $seatingPlan       = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+        $seatingPlan          = predefinedSeatmap();
+        $offers               = $seatingPlan['AirSeatMapRS']['ALaCarteOffer']['ALaCarteOfferItem'];
         $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['ColumnLayOut'];
         $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['RowInfo'];
         $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['WingRow'] ?? [];
         $rows                 = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['Rows'];
-        $aisleIndex           = 0;
-        foreach ($columnLayout as $index => $column) {
-            if ($column['Name'] == 'GAP') {
-                $aisleIndex = $index;
-            }
-        }
+        $passengersCount      = count($seatingPlan['AirSeatMapRS']['DataLists']['PassengerList']['Passengers']) ?? 0;
     } else {
         $error              = $offerDetails['OfferPriceRS']['Errors'];
     }
@@ -202,32 +199,45 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                             </div>
                                         <?php endforeach; ?>
                                         <div class="px-20 py-20 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4 text-center">
-                                            <div class="plane-wrapper">
-                                                <span>Windows this side</span>
-                                                <div class="plane-body">
+                                            <div class="mt-10">
+                                                <p>Windows this side</p>
+                                                <div class="plane-wrapper">
+                                                    <div class="plane-body">
                                                     <?php
                                                     $totalCols = count($rows);
 
-                                                    foreach ($rows as $index => $row): ?>
+                                                    foreach($rows as $index => $row): ?>
                                                         <div class="seat-column">
-                                                            <?php foreach ($row['Seat'] as $index => $seat): ?>
-                                                                <?php
-                                                                $PaxRef    = $seat['PaxRef'] ?? null;
-                                                                $offer     = $seat['OfferItemRefs'] ?? null;
-                                                                $seatID    = $seat['SeatId'] ?? null;
-                                                                $chargable = $seat['Chargable'] ?? '0';
-                                                                $available = $seat['Available'] ?? '0';
-                                                                $class = $seat['Available'] == 1 ? 'seat' : 'seat booked';
-                                                                ?>
-                                                                <?php if (isset($aisleIndex) && $index == $aisleIndex): ?>
-                                                                    <div class="aisle"></div>
-                                                                <?php endif; ?>
-                                                                <div class="<?= $class ?>" data-seat="<?= $row['Number'] . $seat['Column'] ?>"><?= $row['Number'] . $seat['Column'] ?></div>
+                                                            <?php foreach($columnLayout as $layout): ?>
+                                                            <?php if($layout['Name'] == "GAP"): ?>
+                                                            <div class='aisle'></div>
+                                                            <?php else: ?>
+                                                            <?php foreach($row['Seat'] as $seatIndex => $seat): ?>
+                                                            <?php  if($seat['Column'] == $layout['Name']): ?>
+                                                            <?php
+                                                                $PaxRef         = $seat['PaxRef'] ?? null;
+                                                                $seatOffer      = $seat['OfferItemRefs'] ?? null;
+                                                                $seatID         = $seat['SeatId'] ?? null;
+                                                                $chargable      = $seat['Chargable'] ?? '0';
+                                                                $available      = $seat['Available'] ?? '0';
+                                                                $class          = $seat['Available'] == 1 ? 'seat' : 'seat booked';
+                                                                $offerDetails   = [];
+                                                                foreach($offers as $index => $offer){
+                                                                    if($seatOffer == $offer['OfferItemID'] && $available == 1){
+                                                                        $offerDetails = $offer;
+                                                                    }
+                                                                }
+                                                            ?>
+                                                            <div class="<?= $class ?>" <?= ($available == 1) ? '' : 'disabled' ?> data-price="<?= ($available == 1) ? $offerDetails['Price']['Total']['BookingCurrencyPrice'] : '0' ?>"  data-seat="<?= $row['Number']. $seat['Column'] ?>"><?= $row['Number']. $seat['Column'] ?></div>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                            <?php endif; ?>
                                                             <?php endforeach; ?>
                                                         </div>
                                                     <?php endforeach; ?>
+                                                    </div>
                                                 </div>
-                                                <span>Windows this side</span>
+                                                <p>Windows this side</p>
                                                 <?php if(!empty($wingRow)){ 
                                                     $wingStart = $wingRow['Start'];
                                                     $wingEnd   = $wingRow['End'];
@@ -241,7 +251,6 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                     <span><span class="legend-box" style="background:#bfdbfe;border:1px solid #93c5fd;"></span> Wing Area</span>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="border-light rounded-4 mt-30">
                                             <div class="py-20 px-30">
@@ -262,58 +271,41 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                 </div>
                                             </div>
                                             <div class="py-30 px-30 border-top-light">
-                                                <form action="">
-                                                    <div class="row y-gap-10 justify-between">
-                                                        <?php
-                                                        for ($i = 0; $i < $traveller; $i++) {
+                                                <form id="travellerForm">
+                                                    <?php $travellers = $adults + $children;
+                                                        for($i = 1; $i <= $travellers; $i++) { 
+                                                            $isAdult = $i <= $adults;
+                                                            $travellerType = $isAdult ? 'Adult' : 'Child';
+                                                            $index = $isAdult ? $i : $i - $adults;
                                                         ?>
-                                                            <div class="col-lg-12">
-                                                                <div class=" mt-15">
-                                                                    <?php
-                                                                    $passenger = $i + 1;
-                                                                    if ($i < $adults) {
-                                                                        echo "Adult " . $passenger;
-                                                                    } else {
-                                                                        echo "Child " . ($passenger - $adults);
-                                                                    }
-                                                                    ?>
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="traveller-<?= $i + 1 ?>-title" class="text-14 text-light-1">Title</label>
-                                                                            <select name="traveller-<?= $i + 1 ?>-title" id="traveller-<?= $i + 1 ?>-title" class="form-select" style=" padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                                <option value="Mr">Mr</option>
-                                                                                <option value="Miss">Miss</option>
-                                                                                <option value="Mrs">Mrs</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <label for="traveller-first-<?= $i + 1 ?>-name" class="text-14 text-light-1">First Name</label>
-                                                                            <input type="text" name="traveller-first-<?= $i + 1 ?>-name" id="traveller-first-<?= $i + 1 ?>-name" class="form-control" style="    padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <label for="traveller-middle-<?= $i + 1 ?>-name" class="text-14 text-light-1">Middle Name</label>
-                                                                            <input type="text" name="traveller-middle-<?= $i + 1 ?>-name" id="traveller-middle-<?= $i + 1 ?>-name" class="form-control" style="    padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <label for="traveller-last-<?= $i + 1 ?>-name" class="text-14 text-light-1">Last Name</label>
-                                                                            <input type="text" name="traveller-last-<?= $i + 1 ?>-name" id="traveller-last-<?= $i + 1 ?>-name" class="form-control" style="    padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <label for="traveller-<?= $i + 1 ?>-age" class="text-14 text-light-1">Age</label>
-                                                                            <input type="number" name="traveller-<?= $i + 1 ?>-age" id="traveller-<?= $i + 1 ?>-age" class="form-control" style="     padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <label for="traveller-<?= $i + 1 ?>-gender" class="text-14 text-light-1">Gender</label>
-                                                                            <select name="traveller-<?= $i + 1 ?>-gender" id="traveller-<?= $i + 1 ?>-gender" class="form-control"  style="     padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                                <option value="Male">Male</option>
-                                                                                <option value="Female">Female</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                        <div class="row <?= ($i > 1) ? 'mt-30' : '' ?>">
+                                                            <h5><?= $travellerType . ' ' . $index ?></h5>
+                                                            <div class="col-md-4 col-sm-12">
+                                                                <label for="traveller-<?= $i + 1 ?>-title" class="text-14 text-light-1">Title</label>
+                                                                <select name="title[]" id="traveller-<?= $i + 1 ?>-title" class="form-select" style="padding:5px; border:1px solid #ddd; border-radius:5px;">
+                                                                    <option value="Mr">Mr</option>
+                                                                    <option value="Miss">Miss</option>
+                                                                    <option value="Mrs">Mrs</option>
+                                                                </select>
                                                             </div>
-                                                        <?php } ?>
-                                                    </div>
+                                                            <div class="col-md-4 col-sm-12">
+                                                                <label for="traveller-<?= $i + 1 ?>-first-name" class="text-14 text-light-1">First Name</label>
+                                                                <input type="text" name="first-name[]" id="traveller-<?= $i + 1 ?>-first-name" class="form-control" required style="padding:5px; border:1px solid #ddd; border-radius:5px;">
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12">
+                                                                <label for="traveller-<?= $i + 1 ?>-last-name" class="text-14 text-light-1">Last Name</label>
+                                                                <input type="text" name="last-name[]" id="traveller-<?= $i + 1 ?>-last-name" class="form-control" required style="padding:5px; border:1px solid #ddd; border-radius:5px;">
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12">
+                                                                <label for="traveller-<?= $i + 1 ?>-date-of-birth" class="text-14 text-light-1">Date of Birth</label>
+                                                                <input type="date" name="dob[]" id="traveller-<?= $i + 1 ?>-date-of-birth" class="form-control" required style="padding:5px; border:1px solid #ddd; border-radius:5px;">
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12">
+                                                                <label for="traveller-<?= $i + 1 ?>-nationality" class="text-14 text-light-1">Nationality</label>
+                                                                <input type="text" name="nationality[]" id="traveller-<?= $i + 1 ?>-nationality" class="form-control" required style="padding:5px; border:1px solid #ddd; border-radius:5px;">
+                                                            </div>
+                                                        </div>
+                                                    <?php } ?>
                                                 </form>
                                             </div>
                                             <div class="border-light rounded-4 mt-30">
@@ -352,41 +344,6 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                             </div>
                                         </div>
                                         <div class="border-light rounded-4 mt-30">
-                                            <div class="py-20 px-30">
-                                                <div class="row justify-between items-center">
-                                                    <div class="col-auto">
-                                                        <div class="fw-500 text-dark-1">Payment Details</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="py-30 px-30 border-top-light">
-                                                <form action="">
-                                                    <div class="row y-gap-10 justify-between">
-                                                        <div class="col-lg-12">
-                                                            <div class=" mt-15">
-                                                                <div class="row">
-                                                                    <div class="col-lg-12">
-                                                                        <label for="name_on_card" class="text-14 text-light-1">Name On Card</label>
-                                                                        <input type="text" name="name_on_card" id="name_on_card" class="form-control" style="    padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                    </div>
-                                                                    <div class="col-lg-12">
-                                                                        <label for="card_number" class="text-14 text-light-1">Card Number</label>
-                                                                        <input type="number" name="card_number" id="card_number" class="form-control" style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <label for="expiry" class="text-14 text-light-1">Expiry</label>
-                                                                        <input type="number" name="expiry" id="expiry" class="form-control" style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <label for="cvv" class="text-14 text-light-1">CVV</label>
-                                                                        <input type="number" name="cvv" id="cvv" class="form-control" style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
                                             <div class="border-light rounded-4 mt-30">
                                                 <div class="py-20 px-30">
                                                     <div class="row justify-between items-center">

@@ -12102,12 +12102,11 @@ table.table-5 td {
 /* Seating map design */
 .plane-wrapper {
   justify-content: center;
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
   background: #e5f4ff;
-  padding: 40px;
+  padding: 10px;
   border-radius: 20px;
   position: relative;
   overflow-x: auto;
