@@ -1,4 +1,13 @@
 <?php
 session_start();
 
-$con = mysqli_connect("localhost", "u334437283_skyteam", "0bJ0vgC>q^", "u334437283_skyteam");
+$host = ($_SERVER['SERVER_NAME'] == 'localhost') ? "localhost" : "localhost";
+$username = ($_SERVER['SERVER_NAME'] == 'localhost') ? "root" : "u334437283_skyteam";
+$password = ($_SERVER['SERVER_NAME'] == 'localhost') ? "" : "0bJ0vgC>q^";
+$database = "skyteam";
+
+$con = mysqli_connect($host, $username, $password, $database);
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
