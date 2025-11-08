@@ -49,7 +49,7 @@
               <a href="about.php">About Us</a>
               <a href="flights.php">Flights</a>
               <a href="packages.php">Packages</a>
-              <a href="blogs.php">Blogs</a>
+              <!-- <a href="blogs.php">Blogs</a> -->
               <a href="contact.php">Contact</a>
             </div>
           </div>

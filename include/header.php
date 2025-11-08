@@ -522,11 +522,11 @@ $contact = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM `info_co`"));
                                             Packages
                                         </a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="blogs.php">
                                             Blogs
                                         </a>
-                                    </li>
+                                    </li> -->
 
                                     <!-- <li class="menu-item-has-children">
                                         <a data-barba href="#">
