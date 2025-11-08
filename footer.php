@@ -81,7 +81,7 @@
                                 © 2025 Sky Team All rights reserved.
                             </div>
                         </div>
-<!-- 
+                        <!-- 
                         <div class="col-auto">
                             <div class="d-flex x-gap-15">
                                 <a href="#">Privacy</a>
@@ -122,6 +122,7 @@
         </div>
     </div>
 </footer>
+<!-- Login Popup -->
 <!-- Login Popup Modal -->
 <div id="loginModal" style="
   display:none;
@@ -180,13 +181,11 @@
 </div>
 <script>
 // Open popup
-var openLoginModal = document.getElementById("openLoginModal");
-if (openLoginModal) {
-  openLoginModal.addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("loginModal").style.display = "flex";
-  });
-}
+document.getElementById("openLoginModal").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("loginModal").style.display = "flex";
+});
+
 // Close popup
 document.getElementById("closeLoginModal").addEventListener("click", function() {
   document.getElementById("loginModal").style.display = "none";

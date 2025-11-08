@@ -614,29 +614,17 @@
 
                     <div class="row x-gap-20 items-center xxl:d-none">
                         <div class="col-auto">
-                            <button class="d-flex items-center text-14 text-dark-1">
-                                <span class="js-currencyMenu-mainTitle">CAD</span>
-                                <!-- <i class="icon-chevron-sm-down text-7 ml-10"></i> -->
-                            </button>
-                        </div>
-                        <!-- <div class="col-auto">
                             <button class="d-flex items-center text-14 text-dark-1" data-x-click="currency">
                                 <span class="js-currencyMenu-mainTitle">CAD</span>
                                 <i class="icon-chevron-sm-down text-7 ml-10"></i>
                             </button>
-                        </div> -->
+                        </div>
+
                         <div class="col-auto">
                             <div class="w-1 h-20 bg-black-20"></div>
                         </div>
 
                         <div class="col-auto">
-                            <button class="d-flex items-center text-14 text-dark-1">
-                                <img src="img/general/cd.png" alt="image" class="rounded-full mr-10">
-                                <span class="js-language-mainTitle">CANADA</span>
-                                <!-- <i class="icon-chevron-sm-down text-7 ml-15"></i> -->
-                            </button>
-                        </div>
-                        <!-- <div class="col-auto">
                             <button class="d-flex items-center text-14 text-dark-1" data-x-click="lang">
                                 <img src="img/general/lang.png" alt="image" class="rounded-full mr-10">
                                 <span class="js-language-mainTitle">United Kingdom</span>

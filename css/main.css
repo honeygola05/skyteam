@@ -12102,12 +12102,11 @@ table.table-5 td {
 /* Seating map design */
 .plane-wrapper {
   justify-content: center;
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
   background: #e5f4ff;
-  padding: 40px;
+  padding: 10px;
   border-radius: 20px;
   position: relative;
   overflow-x: auto;
@@ -12190,3 +12189,41 @@ table.table-5 td {
 .available-box { background-color: #d1fae5; border: 1px solid #a7f3d0; }
 .booked-box { background-color: #fca5a5; border: 1px solid #ef4444; }
 .selected-box { background-color: #60a5fa; border: 1px solid #2563eb; }
+.seats-and-legends{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.seat.selected {
+  background-color: #60a5fa;
+  color: white;
+  border-color: #2563eb;
+}
+
+#selected-seats {
+  margin-top: 10px;
+}
+
+.selected-seat-tag {
+  display: inline-block;
+  background: #fff;
+  padding: 0px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+}
+.selected-seat-tag .close{
+    position: absolute;
+    font-size: 12px;
+    right: -1px;
+    top: -5px;
+    color: red;
+}
+.sticky-right-div{
+  position: sticky;
+  top: 0;
+  right: 0;
+}
