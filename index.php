@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
-   <head>
-      <?php include('include/head.php');  ?>
-   </head>
-   <body>
-      <?php include('include/preloader.php') ?>
-      <main>
-         <?php include('include/header.php') ?>
-         <section data-anim-wrap class="masthead -type-1 z-5">
-            <div data-anim-child="fade" class="masthead__bg">
-               <img src="#" alt="image" data-src="img/masthead/1/bg.webp" class="js-lazy">
-            </div>
-            <div class="container">
-               <div class="justify-center">
-                  <div class="col-auto">
-                     <div class="text-center">
-                        <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Find Next Place To Visit</h1>
-                        <p data-anim-child="slide-up delay-5" class="text-white mt-6 md:mt-10">Discover amzaing places at exclusive deals</p>
-                     </div>
-                     <div data-anim-child="slide-up delay-6" class="tabs -underline mt-60 js-tabs">
-                        <div class="tabs__controls d-flex x-gap-30 y-gap-20 justify-center sm:justify-start js-tabs-controls">
-                           <div class="">
+
+<head>
+   <?php include('include/head.php');  ?>
+</head>
+
+<body>
+   <?php include('include/preloader.php') ?>
+   <main>
+      <?php include('include/header.php') ?>
+      <section data-anim-wrap class="masthead -type-1 z-5">
+         <div data-anim-child="fade" class="masthead__bg">
+            <img src="#" alt="image" data-src="img/masthead/1/bg.webp" class="js-lazy">
+         </div>
+         <div class="container">
+            <div class="justify-center">
+               <div class="col-auto">
+                  <div class="text-center">
+                     <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Find Next Place To Visit</h1>
+                     <p data-anim-child="slide-up delay-5" class="text-white mt-6 md:mt-10">Discover amzaing places at exclusive deals</p>
+                  </div>
+                  <div data-anim-child="slide-up delay-6" class="tabs -underline mt-60 js-tabs">
+                     <div class="tabs__controls d-flex x-gap-30 y-gap-20 justify-center sm:justify-start js-tabs-controls">
+                        <!-- <div class="">
                               <button class="tabs__button text-15 fw-500 text-white pb-4 js-tabs-button" data-tab-target=".-tab-item-1">Hotel</button>
                            </div>
                            <div class="">
@@ -37,1045 +39,1045 @@
                            </div>
                            <div class="">
                               <button class="tabs__button text-15 fw-500 text-white pb-4 js-tabs-button " data-tab-target=".-tab-item-6">Cruise</button>
-                           </div>
-                           <div class="">
-                              <button class="tabs__button text-15 fw-500 text-white pb-4 js-tabs-button is-tab-el-active" data-tab-target=".-tab-item-7">Flights</button>
+                           </div> -->
+                        <div class="">
+                           <button class="tabs__button text-15 fw-500 text-white pb-4 js-tabs-button is-tab-el-active" data-tab-target=".-tab-item-7">Flights</button>
+                        </div>
+                     </div>
+                     <div class="tabs__content mt-30 md:mt-20 js-tabs-content">
+                        <div class="tabs__pane -tab-item-1">
+                           <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
+                              <div class="button-grid items-center">
+                                 <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
+                                    <div data-x-dd-click="searchMenu-loc">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
+                                          <div class="y-gap-5 js-results">
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">France</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
+                                    <div data-x-dd-click="searchMenu-date">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Depart</h4>
+                                       <div class="capitalize text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-first-date">Wed 2 Mar</span>
+                                          -
+                                          <span class="js-last-date">Fri 11 Apr</span>
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="elCalendar js-calendar-el-calendar"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+                                    <div data-x-dd-click="searchMenu-guests">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-count-adult">2</span> adults
+                                          -
+                                          <span class="js-count-child">1</span> childeren
+                                          -
+                                          <span class="js-count-room">1</span> room
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Adults</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">2</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 lh-12 fw-500">Children</div>
+                                                <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Rooms</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="button-item">
+                                    <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
+                                       <i class="icon-search text-20 mr-10"></i>
+                                       Search
+                                    </button>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                        <div class="tabs__content mt-30 md:mt-20 js-tabs-content">
-                           <div class="tabs__pane -tab-item-1">
-                              <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
-                                 <div class="button-grid items-center">
-                                    <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-                                       <div data-x-dd-click="searchMenu-loc">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                        <div class="tabs__pane -tab-item-2 ">
+                           <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
+                              <div class="button-grid items-center">
+                                 <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
+                                    <div data-x-dd-click="searchMenu-loc">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
+                                          <div class="y-gap-5 js-results">
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">France</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
                                           </div>
                                        </div>
-                                       <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                                             <div class="y-gap-5 js-results">
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                                                         </div>
-                                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
+                                    <div data-x-dd-click="searchMenu-date">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
+                                       <div class="capitalize text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-first-date">Wed 2 Mar</span>
+                                          -
+                                          <span class="js-last-date">Fri 11 Apr</span>
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="elCalendar js-calendar-el-calendar"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+                                    <div data-x-dd-click="searchMenu-guests">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-count-adult">2</span> adults
+                                          -
+                                          <span class="js-count-child">1</span> childeren
+                                          -
+                                          <span class="js-count-room">1</span> room
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Adults</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">2</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 lh-12 fw-500">Children</div>
+                                                <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Rooms</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
                                                    </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                                                         </div>
-                                                      </div>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
-                                       <div data-x-dd-click="searchMenu-date">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Depart</h4>
-                                          <div class="capitalize text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-first-date">Wed 2 Mar</span>
-                                             -
-                                             <span class="js-last-date">Fri 11 Apr</span>
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="elCalendar js-calendar-el-calendar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-                                       <div data-x-dd-click="searchMenu-guests">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-count-adult">2</span> adults
-                                             -
-                                             <span class="js-count-child">1</span> childeren
-                                             -
-                                             <span class="js-count-room">1</span> room
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Adults</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">2</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 lh-12 fw-500">Children</div>
-                                                   <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Rooms</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="button-item">
-                                       <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
+                                 </div>
+                                 <div class="button-item">
+                                    <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
                                        <i class="icon-search text-20 mr-10"></i>
                                        Search
-                                       </button>
-                                    </div>
+                                    </button>
                                  </div>
                               </div>
                            </div>
-                           <div class="tabs__pane -tab-item-2 ">
-                              <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
-                                 <div class="button-grid items-center">
-                                    <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-                                       <div data-x-dd-click="searchMenu-loc">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                        </div>
+                        <div class="tabs__pane -tab-item-3 ">
+                           <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
+                              <div class="button-grid items-center">
+                                 <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
+                                    <div data-x-dd-click="searchMenu-loc">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
+                                          <div class="y-gap-5 js-results">
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">France</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
                                           </div>
                                        </div>
-                                       <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                                             <div class="y-gap-5 js-results">
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                                                         </div>
-                                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
+                                    <div data-x-dd-click="searchMenu-date">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
+                                       <div class="capitalize text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-first-date">Wed 2 Mar</span>
+                                          -
+                                          <span class="js-last-date">Fri 11 Apr</span>
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="elCalendar js-calendar-el-calendar"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+                                    <div data-x-dd-click="searchMenu-guests">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-count-adult">2</span> adults
+                                          -
+                                          <span class="js-count-child">1</span> childeren
+                                          -
+                                          <span class="js-count-room">1</span> room
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Adults</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">2</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 lh-12 fw-500">Children</div>
+                                                <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Rooms</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
                                                    </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                                                         </div>
-                                                      </div>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
-                                       <div data-x-dd-click="searchMenu-date">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-                                          <div class="capitalize text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-first-date">Wed 2 Mar</span>
-                                             -
-                                             <span class="js-last-date">Fri 11 Apr</span>
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="elCalendar js-calendar-el-calendar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-                                       <div data-x-dd-click="searchMenu-guests">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-count-adult">2</span> adults
-                                             -
-                                             <span class="js-count-child">1</span> childeren
-                                             -
-                                             <span class="js-count-room">1</span> room
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Adults</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">2</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 lh-12 fw-500">Children</div>
-                                                   <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Rooms</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="button-item">
-                                       <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
+                                 </div>
+                                 <div class="button-item">
+                                    <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
                                        <i class="icon-search text-20 mr-10"></i>
                                        Search
-                                       </button>
-                                    </div>
+                                    </button>
                                  </div>
                               </div>
                            </div>
-                           <div class="tabs__pane -tab-item-3 ">
-                              <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
-                                 <div class="button-grid items-center">
-                                    <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-                                       <div data-x-dd-click="searchMenu-loc">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                        </div>
+                        <div class="tabs__pane -tab-item-4 ">
+                           <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
+                              <div class="button-grid items-center">
+                                 <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
+                                    <div data-x-dd-click="searchMenu-loc">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
+                                          <div class="y-gap-5 js-results">
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">France</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
                                           </div>
                                        </div>
-                                       <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                                             <div class="y-gap-5 js-results">
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                                                         </div>
-                                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
+                                    <div data-x-dd-click="searchMenu-date">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
+                                       <div class="capitalize text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-first-date">Wed 2 Mar</span>
+                                          -
+                                          <span class="js-last-date">Fri 11 Apr</span>
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="elCalendar js-calendar-el-calendar"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+                                    <div data-x-dd-click="searchMenu-guests">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-count-adult">2</span> adults
+                                          -
+                                          <span class="js-count-child">1</span> childeren
+                                          -
+                                          <span class="js-count-room">1</span> room
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Adults</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">2</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 lh-12 fw-500">Children</div>
+                                                <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Rooms</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
                                                    </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                                                         </div>
-                                                      </div>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
-                                       <div data-x-dd-click="searchMenu-date">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-                                          <div class="capitalize text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-first-date">Wed 2 Mar</span>
-                                             -
-                                             <span class="js-last-date">Fri 11 Apr</span>
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="elCalendar js-calendar-el-calendar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-                                       <div data-x-dd-click="searchMenu-guests">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-count-adult">2</span> adults
-                                             -
-                                             <span class="js-count-child">1</span> childeren
-                                             -
-                                             <span class="js-count-room">1</span> room
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Adults</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">2</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 lh-12 fw-500">Children</div>
-                                                   <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Rooms</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="button-item">
-                                       <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
+                                 </div>
+                                 <div class="button-item">
+                                    <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
                                        <i class="icon-search text-20 mr-10"></i>
                                        Search
-                                       </button>
-                                    </div>
+                                    </button>
                                  </div>
                               </div>
                            </div>
-                           <div class="tabs__pane -tab-item-4 ">
-                              <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
-                                 <div class="button-grid items-center">
-                                    <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-                                       <div data-x-dd-click="searchMenu-loc">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                        </div>
+                        <div class="tabs__pane -tab-item-5 ">
+                           <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
+                              <div class="button-grid items-center">
+                                 <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
+                                    <div data-x-dd-click="searchMenu-loc">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
+                                          <div class="y-gap-5 js-results">
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">France</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
                                           </div>
                                        </div>
-                                       <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                                             <div class="y-gap-5 js-results">
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                                                         </div>
-                                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
+                                    <div data-x-dd-click="searchMenu-date">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
+                                       <div class="capitalize text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-first-date">Wed 2 Mar</span>
+                                          -
+                                          <span class="js-last-date">Fri 11 Apr</span>
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="elCalendar js-calendar-el-calendar"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+                                    <div data-x-dd-click="searchMenu-guests">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-count-adult">2</span> adults
+                                          -
+                                          <span class="js-count-child">1</span> childeren
+                                          -
+                                          <span class="js-count-room">1</span> room
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Adults</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">2</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 lh-12 fw-500">Children</div>
+                                                <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Rooms</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
                                                    </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                                                         </div>
-                                                      </div>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
-                                       <div data-x-dd-click="searchMenu-date">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-                                          <div class="capitalize text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-first-date">Wed 2 Mar</span>
-                                             -
-                                             <span class="js-last-date">Fri 11 Apr</span>
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="elCalendar js-calendar-el-calendar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-                                       <div data-x-dd-click="searchMenu-guests">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-count-adult">2</span> adults
-                                             -
-                                             <span class="js-count-child">1</span> childeren
-                                             -
-                                             <span class="js-count-room">1</span> room
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Adults</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">2</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 lh-12 fw-500">Children</div>
-                                                   <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Rooms</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="button-item">
-                                       <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
+                                 </div>
+                                 <div class="button-item">
+                                    <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
                                        <i class="icon-search text-20 mr-10"></i>
                                        Search
-                                       </button>
-                                    </div>
+                                    </button>
                                  </div>
                               </div>
                            </div>
-                           <div class="tabs__pane -tab-item-5 ">
-                              <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
-                                 <div class="button-grid items-center">
-                                    <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-                                       <div data-x-dd-click="searchMenu-loc">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                        </div>
+                        <div class="tabs__pane -tab-item-6 ">
+                           <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
+                              <div class="button-grid items-center">
+                                 <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
+                                    <div data-x-dd-click="searchMenu-loc">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
+                                          <div class="y-gap-5 js-results">
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">France</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
+                                             <div>
+                                                <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
+                                                   <div class="d-flex">
+                                                      <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
+                                                      <div class="ml-10">
+                                                         <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
+                                                         <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
+                                                      </div>
+                                                   </div>
+                                                </button>
+                                             </div>
                                           </div>
                                        </div>
-                                       <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                                             <div class="y-gap-5 js-results">
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                                                         </div>
-                                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
+                                    <div data-x-dd-click="searchMenu-date">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
+                                       <div class="capitalize text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-first-date">Wed 2 Mar</span>
+                                          -
+                                          <span class="js-last-date">Fri 11 Apr</span>
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="elCalendar js-calendar-el-calendar"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+                                    <div data-x-dd-click="searchMenu-guests">
+                                       <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+                                       <div class="text-15 text-light-1 ls-2 lh-16">
+                                          <span class="js-count-adult">2</span> adults
+                                          -
+                                          <span class="js-count-child">1</span> childeren
+                                          -
+                                          <span class="js-count-room">1</span> room
+                                       </div>
+                                    </div>
+                                    <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
+                                       <div class="bg-white px-30 py-30 rounded-4">
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Adults</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">2</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 lh-12 fw-500">Children</div>
+                                                <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
+                                                   </button>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                                                         </div>
-                                                      </div>
+                                             </div>
+                                          </div>
+                                          <div class="border-top-light mt-24 mb-24"></div>
+                                          <div class="row y-gap-10 justify-between items-center">
+                                             <div class="col-auto">
+                                                <div class="text-15 fw-500">Rooms</div>
+                                             </div>
+                                             <div class="col-auto">
+                                                <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
+                                                      <i class="icon-minus text-12"></i>
                                                    </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                                                         </div>
-                                                      </div>
+                                                   <div class="flex-center size-20 ml-15 mr-15">
+                                                      <div class="text-15 js-count">1</div>
+                                                   </div>
+                                                   <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
+                                                      <i class="icon-plus text-12"></i>
                                                    </button>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
-                                       <div data-x-dd-click="searchMenu-date">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-                                          <div class="capitalize text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-first-date">Wed 2 Mar</span>
-                                             -
-                                             <span class="js-last-date">Fri 11 Apr</span>
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="elCalendar js-calendar-el-calendar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-                                       <div data-x-dd-click="searchMenu-guests">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-count-adult">2</span> adults
-                                             -
-                                             <span class="js-count-child">1</span> childeren
-                                             -
-                                             <span class="js-count-room">1</span> room
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Adults</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">2</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 lh-12 fw-500">Children</div>
-                                                   <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Rooms</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="button-item">
-                                       <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
+                                 </div>
+                                 <div class="button-item">
+                                    <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
                                        <i class="icon-search text-20 mr-10"></i>
                                        Search
-                                       </button>
-                                    </div>
+                                    </button>
                                  </div>
                               </div>
                            </div>
-                           <div class="tabs__pane -tab-item-6 ">
-                              <div class="mainSearch -w-900 bg-white px-10 py-10 lg:px-20 lg:pt-5 lg:pb-20 rounded-22">
-                                 <div class="button-grid items-center">
-                                    <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-                                       <div data-x-dd-click="searchMenu-loc">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Location</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <input autocomplete="off" type="search" placeholder="Where are you going?" class="js-search js-dd-focus" />
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-loc__field shadow-2 js-popup-window" data-x-dd="searchMenu-loc" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 sm:px-0 sm:py-15 rounded-4">
-                                             <div class="y-gap-5 js-results">
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">London</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greater London, United Kingdom</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">New York</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">New York State, United States</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Paris</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">France</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Madrid</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Spain</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                                <div>
-                                                   <button class="-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option">
-                                                      <div class="d-flex">
-                                                         <div class="icon-location-2 text-light-1 text-20 pt-4"></div>
-                                                         <div class="ml-10">
-                                                            <div class="text-15 lh-12 fw-500 js-search-option-target">Santorini</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Greece</div>
-                                                         </div>
-                                                      </div>
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar js-calendar-el">
-                                       <div data-x-dd-click="searchMenu-date">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-                                          <div class="capitalize text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-first-date">Wed 2 Mar</span>
-                                             -
-                                             <span class="js-last-date">Fri 11 Apr</span>
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-date__field shadow-2" data-x-dd="searchMenu-date" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="elCalendar js-calendar-el-calendar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-                                       <div data-x-dd-click="searchMenu-guests">
-                                          <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-                                          <div class="text-15 text-light-1 ls-2 lh-16">
-                                             <span class="js-count-adult">2</span> adults
-                                             -
-                                             <span class="js-count-child">1</span> childeren
-                                             -
-                                             <span class="js-count-room">1</span> room
-                                          </div>
-                                       </div>
-                                       <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                          <div class="bg-white px-30 py-30 rounded-4">
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Adults</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">2</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 lh-12 fw-500">Children</div>
-                                                   <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="border-top-light mt-24 mb-24"></div>
-                                             <div class="row y-gap-10 justify-between items-center">
-                                                <div class="col-auto">
-                                                   <div class="text-15 fw-500">Rooms</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                   <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                      <i class="icon-minus text-12"></i>
-                                                      </button>
-                                                      <div class="flex-center size-20 ml-15 mr-15">
-                                                         <div class="text-15 js-count">1</div>
-                                                      </div>
-                                                      <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                      <i class="icon-plus text-12"></i>
-                                                      </button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="button-item">
-                                       <button class="mainSearch__submit button -dark-1 h-60 px-35 col-12 rounded-100 bg-blue-1 text-white">
-                                       <i class="icon-search text-20 mr-10"></i>
-                                       Search
-                                       </button>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tabs__pane -tab-item-7 is-tab-el-active">
-                              <?php include('include/flights-form.php'); ?>
-                           </div>
+                        </div>
+                        <div class="tabs__pane -tab-item-7 is-tab-el-active">
+                           <?php include('include/flights-form.php'); ?>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-         </section>
-         <section class="layout-pt-md layout-pb-md">
-            <div data-anim="slide-up delay-1" class="container">
-               <div class="row y-gap-10 justify-between items-end">
-                  <div class="col-auto">
-                     <div class="sectionTitle -md">
-                        <h2 class="sectionTitle__title">Recommended</h2>
-                        <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
-                     </div>
+         </div>
+      </section>
+      <section class="layout-pt-md layout-pb-md">
+         <div data-anim="slide-up delay-1" class="container">
+            <div class="row y-gap-10 justify-between items-end">
+               <div class="col-auto">
+                  <div class="sectionTitle -md">
+                     <h2 class="sectionTitle__title">Recommended</h2>
+                     <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
                   </div>
-                  <!-- <div class="col-sm-auto">
+               </div>
+               <!-- <div class="col-sm-auto">
                      <div class="dropdown js-dropdown js-hotel-active">
                        <div class="dropdown__button d-flex items-center rounded-4 border-light justify-between text-16 fw-500 px-20 h-50 w-140 sm:w-full text-14" data-el-toggle=".js-hotel-toggle" data-el-toggle-active=".js-hotel-active">
                          <span class="js-dropdown-title">Hotel</span>
@@ -1100,26 +1102,26 @@
                      </div>
                      
                      </div> -->
-               </div>
-               <div class="relative overflow-hidden pt-40 sm:pt-20 js-section-slider" data-gap="30" data-scrollbar data-slider-cols="xl-4 lg-3 md-2 sm-2 base-1" data-nav-prev="js-hotels-prev" data-pagination="js-hotels-pag" data-nav-next="js-hotels-next">
-                  <div class="swiper-wrapper">
-                     <?php
-                        $packages_per_page = 8; // Change to how many packages you want per page
-                        $page = isset($_GET['page']) && is_numeric($_GET['page']) ? intval($_GET['page']) : 1;
-                        $offset = ($page - 1) * $packages_per_page;
-                        
-                        // Get total number of packages
-                        $total_sql = mysqli_query($con, "SELECT COUNT(*) as total FROM `package`");
-                        $total_row = mysqli_fetch_assoc($total_sql);
-                        $total_packages = $total_row['total'];
-                        $total_pages = ceil($total_packages / $packages_per_page);
-                        
-                        // Fetch paginated data
-                        $sql = mysqli_query($con, "SELECT * FROM `package` LIMIT $offset, $packages_per_page");
-                        $sql = mysqli_query($con, "SELECT * FROM `package`");
-                        while ($package = mysqli_fetch_assoc($sql)) {
-                          $image = json_decode($package['image']);
-                        ?>
+            </div>
+            <div class="relative overflow-hidden pt-40 sm:pt-20 js-section-slider" data-gap="30" data-scrollbar data-slider-cols="xl-4 lg-3 md-2 sm-2 base-1" data-nav-prev="js-hotels-prev" data-pagination="js-hotels-pag" data-nav-next="js-hotels-next">
+               <div class="swiper-wrapper">
+                  <?php
+                  $packages_per_page = 8; // Change to how many packages you want per page
+                  $page = isset($_GET['page']) && is_numeric($_GET['page']) ? intval($_GET['page']) : 1;
+                  $offset = ($page - 1) * $packages_per_page;
+
+                  // Get total number of packages
+                  $total_sql = mysqli_query($con, "SELECT COUNT(*) as total FROM `package`");
+                  $total_row = mysqli_fetch_assoc($total_sql);
+                  $total_packages = $total_row['total'];
+                  $total_pages = ceil($total_packages / $packages_per_page);
+
+                  // Fetch paginated data
+                  $sql = mysqli_query($con, "SELECT * FROM `package` LIMIT $offset, $packages_per_page");
+                  $sql = mysqli_query($con, "SELECT * FROM `package`");
+                  while ($package = mysqli_fetch_assoc($sql)) {
+                     $image = json_decode($package['image']);
+                  ?>
                      <div class="swiper-slide">
                         <a href="package.php?url=<?= $package['url'] ?>" class="hotelsCard -type-1 ">
                            <div class="hotelsCard__image">
@@ -1129,20 +1131,20 @@
                                     <div class="cardImage-slider rounded-4 overflow-hidden js-cardImage-slider">
                                        <div class="swiper-wrapper">
                                           <?php for ($i = 0; $i < count($image); $i++): ?>
-                                          <div class="swiper-slide">
-                                             <img class="col-12" src="media/package/<?= $image[$i] ?>" alt="image <?= $i + 1 ?>">
-                                          </div>
+                                             <div class="swiper-slide">
+                                                <img class="col-12" src="media/package/<?= $image[$i] ?>" alt="image <?= $i + 1 ?>">
+                                             </div>
                                           <?php endfor; ?>
                                        </div>
                                        <div class="cardImage-slider__pagination js-pagination"></div>
                                        <div class="cardImage-slider__nav -prev">
                                           <button class="button -blue-1 bg-white size-30 rounded-full shadow-2 js-prev">
-                                          <i class="icon-chevron-left text-10"></i>
+                                             <i class="icon-chevron-left text-10"></i>
                                           </button>
                                        </div>
                                        <div class="cardImage-slider__nav -next">
                                           <button class="button -blue-1 bg-white size-30 rounded-full shadow-2 js-next">
-                                          <i class="icon-chevron-right text-10"></i>
+                                             <i class="icon-chevron-right text-10"></i>
                                           </button>
                                        </div>
                                     </div>
@@ -1179,22 +1181,22 @@
                            </div>
                         </a>
                      </div>
-                     <?php } ?>
-                  </div>
-                  <div class="text-center mt-30">
-                     <nav class="pagination -buttons">
-                        <?php if ($page > 1): ?>
+                  <?php } ?>
+               </div>
+               <div class="text-center mt-30">
+                  <nav class="pagination -buttons">
+                     <?php if ($page > 1): ?>
                         <a class="button px-15 py-10 -outline-blue-1 text-blue-1" href="?page=<?= $page - 1 ?>">Prev</a>
-                        <?php endif; ?>
-                        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                     <?php endif; ?>
+                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                         <a class="button px-15 py-10 <?= ($i == $page ? '-blue-1 text-white' : '-outline-blue-1 text-blue-1') ?>" href="?page=<?= $i ?>"><?= $i ?></a>
-                        <?php endfor; ?>
-                        <?php if ($page < $total_pages): ?>
+                     <?php endfor; ?>
+                     <?php if ($page < $total_pages): ?>
                         <a class="button px-15 py-10 -outline-blue-1 text-blue-1" href="?page=<?= $page + 1 ?>">Next</a>
-                        <?php endif; ?>
-                     </nav>
-                  </div>
-                  <!-- <div class="d-flex x-gap-15 items-center justify-center sm:justify-start pt-40 sm:pt-20">
+                     <?php endif; ?>
+                  </nav>
+               </div>
+               <!-- <div class="d-flex x-gap-15 items-center justify-center sm:justify-start pt-40 sm:pt-20">
                      <div class="col-auto">
                        <button class="d-flex items-center text-24 arrow-left-hover js-hotels-prev">
                          <i class="icon icon-arrow-left"></i>
@@ -1211,10 +1213,10 @@
                        </button>
                      </div>
                      </div> -->
-               </div>
             </div>
-         </section>
-         <section class="layout-pt-md layout-pb-md">
+         </div>
+      </section>
+      <!-- <section class="layout-pt-md layout-pb-md">
             <div class="container">
                <div class="row y-gap-20">
                   <div data-anim="slide-up" class="col-md-6">
@@ -1246,147 +1248,148 @@
                   </div>
                </div>
             </div>
-         </section>
-         <section class="layout-pt-md layout-pb-lg">
-            <div data-anim-wrap class="container">
-               <div class="row y-gap-20 justify-between">
-                  <div data-anim-child="slide-up delay-1" class="col-lg-3 col-sm-6">
-                     <div class="featureIcon -type-1 ">
-                        <div class="d-flex justify-center">
-                           <img src="#" data-src="img/featureIcons/1/1.svg" alt="image" class="js-lazy">
-                        </div>
-                        <div class="text-center mt-30">
-                           <h4 class="text-18 fw-500">Best Price Guarantee</h4>
-                           <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+         </section> -->
+      <section class="layout-pt-md layout-pb-lg">
+         <div data-anim-wrap class="container">
+            <div class="row y-gap-20 justify-between">
+               <div data-anim-child="slide-up delay-1" class="col-lg-3 col-sm-6">
+                  <div class="featureIcon -type-1 ">
+                     <div class="d-flex justify-center">
+                        <img src="#" data-src="img/featureIcons/1/1.svg" alt="image" class="js-lazy">
+                     </div>
+                     <div class="text-center mt-30">
+                        <h4 class="text-18 fw-500">Best Price Guarantee</h4>
+                        <p class="text-15 mt-10">With our Best Price Guarantee, you can book confidently knowing you’re getting the most for your money.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div data-anim-child="slide-up delay-2" class="col-lg-3 col-sm-6">
+                  <div class="featureIcon -type-1 ">
+                     <div class="d-flex justify-center">
+                        <img src="#" data-src="img/featureIcons/1/2.svg" alt="image" class="js-lazy">
+                     </div>
+                     <div class="text-center mt-30">
+                        <h4 class="text-18 fw-500">Easy & Quick Booking</h4>
+                        <p class="text-15 mt-10">With SkyTeam Travel, booking flights and packages is as smooth as your journey should be.</p>
+                     </div>
+                  </div>
+               </div>
+               <div data-anim-child="slide-up delay-3" class="col-lg-3 col-sm-6">
+                  <div class="featureIcon -type-1 ">
+                     <div class="d-flex justify-center">
+                        <img src="#" data-src="img/featureIcons/1/3.svg" alt="image" class="js-lazy">
+                     </div>
+                     <div class="text-center mt-30">
+                        <h4 class="text-18 fw-500">Customer Care 24/7</h4>
+                        <p class="text-15 mt-10">At SkyTeam Travel, our support never sleeps. Whether it’s day or night, our travel experts are here to help you — anytime, anywhere.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="section-bg layout-pt-lg layout-pb-lg">
+         <div class="section-bg__item -mx-20 bg-light-2"></div>
+         <div class="container">
+            <div class="row justify-center text-center">
+               <div class="col-auto">
+                  <div class="sectionTitle -md">
+                     <h2 class="sectionTitle__title">Overheard from travelers</h2>
+                     <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
+                  </div>
+               </div>
+            </div>
+            <div class="overflow-hidden pt-80 js-section-slider" data-gap="30" data-slider-cols="xl-3 lg-3 md-2 sm-1 base-1">
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                     <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <div class="pt-20 mt-28 border-top-light">
+                           <div class="row x-gap-20 y-gap-20 items-center">
+                              <div class="col-auto">
+                                 <img class="size-60" src="img/avatars/1.png" alt="image">
+                              </div>
+                              <div class="col-auto">
+                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
+                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
-                  <div data-anim-child="slide-up delay-2" class="col-lg-3 col-sm-6">
-                     <div class="featureIcon -type-1 ">
-                        <div class="d-flex justify-center">
-                           <img src="#" data-src="img/featureIcons/1/2.svg" alt="image" class="js-lazy">
-                        </div>
-                        <div class="text-center mt-30">
-                           <h4 class="text-18 fw-500">Easy & Quick Booking</h4>
-                           <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <div class="swiper-slide">
+                     <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <div class="pt-20 mt-28 border-top-light">
+                           <div class="row x-gap-20 y-gap-20 items-center">
+                              <div class="col-auto">
+                                 <img class="size-60" src="img/avatars/1.png" alt="image">
+                              </div>
+                              <div class="col-auto">
+                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
+                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
-                  <div data-anim-child="slide-up delay-3" class="col-lg-3 col-sm-6">
-                     <div class="featureIcon -type-1 ">
-                        <div class="d-flex justify-center">
-                           <img src="#" data-src="img/featureIcons/1/3.svg" alt="image" class="js-lazy">
+                  <div class="swiper-slide">
+                     <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <div class="pt-20 mt-28 border-top-light">
+                           <div class="row x-gap-20 y-gap-20 items-center">
+                              <div class="col-auto">
+                                 <img class="size-60" src="img/avatars/1.png" alt="image">
+                              </div>
+                              <div class="col-auto">
+                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
+                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                              </div>
+                           </div>
                         </div>
-                        <div class="text-center mt-30">
-                           <h4 class="text-18 fw-500">Customer Care 24/7</h4>
-                           <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <div class="pt-20 mt-28 border-top-light">
+                           <div class="row x-gap-20 y-gap-20 items-center">
+                              <div class="col-auto">
+                                 <img class="size-60" src="img/avatars/1.png" alt="image">
+                              </div>
+                              <div class="col-auto">
+                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
+                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <div class="pt-20 mt-28 border-top-light">
+                           <div class="row x-gap-20 y-gap-20 items-center">
+                              <div class="col-auto">
+                                 <img class="size-60" src="img/avatars/1.png" alt="image">
+                              </div>
+                              <div class="col-auto">
+                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
+                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-         </section>
-         <section class="section-bg layout-pt-lg layout-pb-lg">
-            <div class="section-bg__item -mx-20 bg-light-2"></div>
-            <div class="container">
-               <div class="row justify-center text-center">
-                  <div class="col-auto">
-                     <div class="sectionTitle -md">
-                        <h2 class="sectionTitle__title">Overheard from travelers</h2>
-                        <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="overflow-hidden pt-80 js-section-slider" data-gap="30" data-slider-cols="xl-3 lg-3 md-2 sm-1 base-1">
-                  <div class="swiper-wrapper">
-                     <div class="swiper-slide">
-                        <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                           <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                           <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
-                           <div class="pt-20 mt-28 border-top-light">
-                              <div class="row x-gap-20 y-gap-20 items-center">
-                                 <div class="col-auto">
-                                    <img class="size-60" src="img/avatars/1.png" alt="image">
-                                 </div>
-                                 <div class="col-auto">
-                                    <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                    <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide">
-                        <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                           <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                           <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
-                           <div class="pt-20 mt-28 border-top-light">
-                              <div class="row x-gap-20 y-gap-20 items-center">
-                                 <div class="col-auto">
-                                    <img class="size-60" src="img/avatars/1.png" alt="image">
-                                 </div>
-                                 <div class="col-auto">
-                                    <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                    <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide">
-                        <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                           <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                           <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
-                           <div class="pt-20 mt-28 border-top-light">
-                              <div class="row x-gap-20 y-gap-20 items-center">
-                                 <div class="col-auto">
-                                    <img class="size-60" src="img/avatars/1.png" alt="image">
-                                 </div>
-                                 <div class="col-auto">
-                                    <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                    <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide">
-                        <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                           <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                           <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
-                           <div class="pt-20 mt-28 border-top-light">
-                              <div class="row x-gap-20 y-gap-20 items-center">
-                                 <div class="col-auto">
-                                    <img class="size-60" src="img/avatars/1.png" alt="image">
-                                 </div>
-                                 <div class="col-auto">
-                                    <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                    <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide">
-                        <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                           <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                           <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
-                           <div class="pt-20 mt-28 border-top-light">
-                              <div class="row x-gap-20 y-gap-20 items-center">
-                                 <div class="col-auto">
-                                    <img class="size-60" src="img/avatars/1.png" alt="image">
-                                 </div>
-                                 <div class="col-auto">
-                                    <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                    <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- <div class="row y-gap-30 items-center pt-40 sm:pt-20">
+            <!-- <div class="row y-gap-30 items-center pt-40 sm:pt-20">
                   <div class="col-xl-4">
                     <div class="row y-gap-30 text-dark-1">
                       <div class="col-sm-5 col-6">
@@ -1445,62 +1448,62 @@
                     </div>
                   </div>
                   </div> -->
+         </div>
+      </section>
+      <section class="layout-pt-lg layout-pb-md">
+         <div data-anim-wrap class="container">
+            <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
+               <div class="col-auto">
+                  <div class="sectionTitle -md">
+                     <h2 class="sectionTitle__title">Get inspiration for your next trip</h2>
+                     <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames</p>
+                  </div>
+               </div>
             </div>
-         </section>
-         <section class="layout-pt-lg layout-pb-md">
-            <div data-anim-wrap class="container">
-               <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
-                  <div class="col-auto">
-                     <div class="sectionTitle -md">
-                        <h2 class="sectionTitle__title">Get inspiration for your next trip</h2>
-                        <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames</p>
+            <div class="row y-gap-30 pt-40">
+               <div data-anim-child="slide-left delay-1" class="col-lg-4 col-sm-6">
+                  <a href="#" class="blogCard -type-1 d-block ">
+                     <div class="blogCard__image">
+                        <div class="ratio ratio-4:3 rounded-4 rounded-8">
+                           <img class="img-ratio js-lazy" src="#" data-src="img/blog/1.png" alt="image">
+                        </div>
                      </div>
-                  </div>
+                     <div class="mt-20">
+                        <h4 class="text-dark-1 text-18 fw-500">10 European ski destinations you should visit this winter</h4>
+                        <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
+                     </div>
+                  </a>
                </div>
-               <div class="row y-gap-30 pt-40">
-                  <div data-anim-child="slide-left delay-1" class="col-lg-4 col-sm-6">
-                     <a href="#" class="blogCard -type-1 d-block ">
-                        <div class="blogCard__image">
-                           <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                              <img class="img-ratio js-lazy" src="#" data-src="img/blog/1.png" alt="image">
-                           </div>
+               <div data-anim-child="slide-left delay-2" class="col-lg-4 col-sm-6">
+                  <a href="#" class="blogCard -type-1 d-block ">
+                     <div class="blogCard__image">
+                        <div class="ratio ratio-4:3 rounded-4 rounded-8">
+                           <img class="img-ratio js-lazy" src="#" data-src="img/blog/2.png" alt="image">
                         </div>
-                        <div class="mt-20">
-                           <h4 class="text-dark-1 text-18 fw-500">10 European ski destinations you should visit this winter</h4>
-                           <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
+                     </div>
+                     <div class="mt-20">
+                        <h4 class="text-dark-1 text-18 fw-500">Booking travel during Corona: good advice in an uncertain time</h4>
+                        <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
+                     </div>
+                  </a>
+               </div>
+               <div data-anim-child="slide-left delay-3" class="col-lg-4 col-sm-6">
+                  <a href="#" class="blogCard -type-1 d-block ">
+                     <div class="blogCard__image">
+                        <div class="ratio ratio-4:3 rounded-4 rounded-8">
+                           <img class="img-ratio js-lazy" src="#" data-src="img/blog/3.png" alt="image">
                         </div>
-                     </a>
-                  </div>
-                  <div data-anim-child="slide-left delay-2" class="col-lg-4 col-sm-6">
-                     <a href="#" class="blogCard -type-1 d-block ">
-                        <div class="blogCard__image">
-                           <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                              <img class="img-ratio js-lazy" src="#" data-src="img/blog/2.png" alt="image">
-                           </div>
-                        </div>
-                        <div class="mt-20">
-                           <h4 class="text-dark-1 text-18 fw-500">Booking travel during Corona: good advice in an uncertain time</h4>
-                           <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
-                        </div>
-                     </a>
-                  </div>
-                  <div data-anim-child="slide-left delay-3" class="col-lg-4 col-sm-6">
-                     <a href="#" class="blogCard -type-1 d-block ">
-                        <div class="blogCard__image">
-                           <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                              <img class="img-ratio js-lazy" src="#" data-src="img/blog/3.png" alt="image">
-                           </div>
-                        </div>
-                        <div class="mt-20">
-                           <h4 class="text-dark-1 text-18 fw-500">Where can I go? 5 amazing countries that are open right now</h4>
-                           <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
-                        </div>
-                     </a>
-                  </div>
+                     </div>
+                     <div class="mt-20">
+                        <h4 class="text-dark-1 text-18 fw-500">Where can I go? 5 amazing countries that are open right now</h4>
+                        <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
+                     </div>
+                  </a>
                </div>
             </div>
-         </section>
-         <!-- <section class="layout-pt-md layout-pb-lg">
+         </div>
+      </section>
+      <!-- <section class="layout-pt-md layout-pb-lg">
             <div class="container">
               <div class="row">
                 <div class="col-auto">
@@ -1972,35 +1975,36 @@
               </div>
             </div>
             </section> -->
-         <section class="layout-pt-md layout-pb-md bg-dark-2">
-            <div class="container">
-               <div class="row y-gap-30 justify-between items-center">
-                  <div class="col-auto">
-                     <div class="row y-gap-20  flex-wrap items-center">
-                        <div class="col-auto">
-                           <div class="icon-newsletter text-60 sm:text-40 text-white"></div>
-                        </div>
-                        <div class="col-auto">
-                           <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
-                           <div class="text-white">Sign up and we'll send the best deals to you</div>
-                        </div>
+      <section class="layout-pt-md layout-pb-md bg-dark-2">
+         <div class="container">
+            <div class="row y-gap-30 justify-between items-center">
+               <div class="col-auto">
+                  <div class="row y-gap-20  flex-wrap items-center">
+                     <div class="col-auto">
+                        <div class="icon-newsletter text-60 sm:text-40 text-white"></div>
+                     </div>
+                     <div class="col-auto">
+                        <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
+                        <div class="text-white">Sign up and we'll send the best deals to you</div>
                      </div>
                   </div>
-                  <div class="col-auto">
-                     <div class="single-field -w-410 d-flex x-gap-10 y-gap-20">
-                        <div>
-                           <input class="bg-white h-60" type="text" placeholder="Your Email">
-                        </div>
-                        <div>
-                           <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
-                        </div>
+               </div>
+               <div class="col-auto">
+                  <div class="single-field -w-410 d-flex x-gap-10 y-gap-20">
+                     <div>
+                        <input class="bg-white h-60" type="text" placeholder="Your Email">
+                     </div>
+                     <div>
+                        <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
                      </div>
                   </div>
                </div>
             </div>
-         </section>
-         <?php include('include/footer.php') ?>
-      </main>
-      <?php include('include/foot.php') ?>
-   </body>
+         </div>
+      </section>
+      <?php include('include/footer.php') ?>
+   </main>
+   <?php include('include/foot.php') ?>
+</body>
+
 </html>
