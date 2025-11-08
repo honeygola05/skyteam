@@ -63,11 +63,11 @@
                 Send a message
               </div>
 
-              <div class="row y-gap-20 pt-20">
+              <form method="POST" action="form.php" class="row y-gap-20 pt-20">
                 <div class="col-12">
 
                   <div class="form-input ">
-                    <input type="text" required>
+                    <input type="text" name="name" required>
                     <label class="lh-1 text-16 text-light-1">Full Name</label>
                   </div>
 
@@ -75,7 +75,7 @@
                 <div class="col-12">
 
                   <div class="form-input ">
-                    <input type="text" required>
+                    <input type="text" name="email" required>
                     <label class="lh-1 text-16 text-light-1">Email</label>
                   </div>
 
@@ -83,7 +83,15 @@
                 <div class="col-12">
 
                   <div class="form-input ">
-                    <input type="text" required>
+                    <input type="text" name="phone" required>
+                    <label class="lh-1 text-16 text-light-1">Phone</label>
+                  </div>
+
+                </div>
+                <div class="col-12">
+
+                  <div class="form-input ">
+                    <input type="text" name="subject" required>
                     <label class="lh-1 text-16 text-light-1">Subject</label>
                   </div>
 
@@ -91,19 +99,19 @@
                 <div class="col-12">
 
                   <div class="form-input ">
-                    <textarea required rows="4"></textarea>
+                    <textarea required rows="4" name="message"></textarea>
                     <label class="lh-1 text-16 text-light-1">Your Messages</label>
                   </div>
 
                 </div>
                 <div class="col-auto">
 
-                  <a href="#" class="button px-24 h-50 -dark-1 bg-blue-1 text-white">
+                  <button type="submit" name="contact" class="button px-24 h-50 -dark-1 bg-blue-1 text-white">
                     Send a Messsage <div class="icon-arrow-top-right ml-15"></div>
-                  </a>
+                  </button>
 
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -119,17 +127,18 @@
 
           <div class="col-lg-3">
             <div class="text-14 text-light-1">Address</div>
-            <div class="text-18 fw-500 mt-10">12899 76 Ave Unit 204, Surrey, BC V3W 1E6, Canada</div>
+            <div class="text-18 fw-500 mt-10"><?= $contact['address'] ?></div>
           </div>
 
           <div class="col-auto">
             <div class="text-14 text-light-1">Toll Free Customer Care</div>
-            <div class="text-18 fw-500 mt-10">+1 (778) 312-2390</div>
+            <div class="text-18 fw-500 mt-10"><?= $contact['phone'] ?></div>
+            <div class="text-18 fw-500 mt-10"><?= $contact['phone2'] ?></div>
           </div>
 
           <div class="col-auto">
             <div class="text-14 text-light-1">Need live support?</div>
-            <div class="text-18 fw-500 mt-10">sales@skyteamtravel.ca</div>
+            <div class="text-18 fw-500 mt-10"><?= $contact['email'] ?></div>
           </div>
 
           <div class="col-auto">
@@ -208,36 +217,6 @@
       </div>
     </section>
 
-    <section class="layout-pt-md layout-pb-md bg-dark-2">
-      <div class="container">
-        <div class="row y-gap-30 justify-between items-center">
-          <div class="col-auto">
-            <div class="row y-gap-20  flex-wrap items-center">
-              <div class="col-auto">
-                <div class="icon-newsletter text-60 sm:text-40 text-white"></div>
-              </div>
-
-              <div class="col-auto">
-                <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
-                <div class="text-white">Sign up and we'll send the best deals to you</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-auto">
-            <div class="single-field -w-410 d-flex x-gap-10 y-gap-20">
-              <div>
-                <input class="bg-white h-60" type="text" placeholder="Your Email">
-              </div>
-
-              <div>
-                <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <?php include('include/footer.php') ?>
 

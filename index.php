@@ -1304,16 +1304,12 @@
                <div class="swiper-wrapper">
                   <div class="swiper-slide">
                      <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">SkyTeam Travel</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Thanks to SkyTeam Travel, we were able to book our flights and hotels in Japan with ease. The prices were unbeatable and the customer service was top notch.&quot;</p>
                         <div class="pt-20 mt-28 border-top-light">
                            <div class="row x-gap-20 y-gap-20 items-center">
                               <div class="col-auto">
-                                 <img class="size-60" src="img/avatars/1.png" alt="image">
-                              </div>
-                              <div class="col-auto">
-                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                                 <div class="text-15 fw-500 lh-14">Emily Chen</div>
                               </div>
                            </div>
                         </div>
@@ -1321,16 +1317,12 @@
                   </div>
                   <div class="swiper-slide">
                      <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">SkyTeam Travel</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;SkyTeam Travel made booking our flights and hotels for our honeymoon a breeze. Their customer service team was very responsive and helpful in finding the best deals for us.&quot;</p>
                         <div class="pt-20 mt-28 border-top-light">
                            <div class="row x-gap-20 y-gap-20 items-center">
                               <div class="col-auto">
-                                 <img class="size-60" src="img/avatars/1.png" alt="image">
-                              </div>
-                              <div class="col-auto">
-                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                                 <div class="text-15 fw-500 lh-14">David Lee</div>
                               </div>
                            </div>
                         </div>
@@ -1338,16 +1330,12 @@
                   </div>
                   <div class="swiper-slide">
                      <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">SkyTeam Travel</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;SkyTeam Travel helped us plan our dream vacation to Hawaii. Their travel experts were very knowledgeable and helpful in finding the best deals for our trip.&quot;</p>
                         <div class="pt-20 mt-28 border-top-light">
                            <div class="row x-gap-20 y-gap-20 items-center">
                               <div class="col-auto">
-                                 <img class="size-60" src="img/avatars/1.png" alt="image">
-                              </div>
-                              <div class="col-auto">
-                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                                 <div class="text-15 fw-500 lh-14">Sarah Kim</div>
                               </div>
                            </div>
                         </div>
@@ -1355,16 +1343,12 @@
                   </div>
                   <div class="swiper-slide">
                      <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">SkyTeam Travel</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;SkyTeam Travel made booking our flights and hotels for our family vacation a breeze. Their customer service team was very responsive and helpful in finding the best deals for us.&quot;</p>
                         <div class="pt-20 mt-28 border-top-light">
                            <div class="row x-gap-20 y-gap-20 items-center">
                               <div class="col-auto">
-                                 <img class="size-60" src="img/avatars/1.png" alt="image">
-                              </div>
-                              <div class="col-auto">
-                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                                 <div class="text-15 fw-500 lh-14">Michael Patel</div>
                               </div>
                            </div>
                         </div>
@@ -1372,24 +1356,19 @@
                   </div>
                   <div class="swiper-slide">
                      <div class="testimonials -type-1 bg-white rounded-4 pt-40 pb-30 px-40">
-                        <h4 class="text-16 fw-500 text-blue-1 mb-20">Hotel Equatorial Melaka</h4>
-                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;Our family was traveling via bullet train between cities in Japan with our luggage - the location for this hotel made that so easy. Agoda price was fantastic.&quot;</p>
+                        <h4 class="text-16 fw-500 text-blue-1 mb-20">SkyTeam Travel</h4>
+                        <p class="testimonials__text lh-18 fw-500 text-dark-1">&quot;SkyTeam Travel helped us plan our dream vacation to Europe. Their travel experts were very knowledgeable and helpful in finding the best deals for our trip.&quot;</p>
                         <div class="pt-20 mt-28 border-top-light">
                            <div class="row x-gap-20 y-gap-20 items-center">
                               <div class="col-auto">
-                                 <img class="size-60" src="img/avatars/1.png" alt="image">
-                              </div>
-                              <div class="col-auto">
-                                 <div class="text-15 fw-500 lh-14">Courtney Henry</div>
-                                 <div class="text-14 lh-14 text-light-1 mt-5">Web Designer</div>
+                                 <div class="text-15 fw-500 lh-14">Rachel Brown</div>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
-            <!-- <div class="row y-gap-30 items-center pt-40 sm:pt-20">
+               <!-- <div class="row y-gap-30 items-center pt-40 sm:pt-20">
                   <div class="col-xl-4">
                     <div class="row y-gap-30 text-dark-1">
                       <div class="col-sm-5 col-6">
@@ -1448,61 +1427,44 @@
                     </div>
                   </div>
                   </div> -->
-         </div>
+            </div>
       </section>
-      <section class="layout-pt-lg layout-pb-md">
+      <!-- <section class="layout-pt-lg layout-pb-md">
          <div data-anim-wrap class="container">
             <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
                <div class="col-auto">
                   <div class="sectionTitle -md">
                      <h2 class="sectionTitle__title">Get inspiration for your next trip</h2>
-                     <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames</p>
+                     <p class=" sectionTitle__text mt-5 sm:mt-0">We've got the best travel tips, stories, and guides to help you plan your next adventure. From backpacking Europe to exploring the hidden gems of Asia, we've got you covered.</p>
                   </div>
                </div>
             </div>
             <div class="row y-gap-30 pt-40">
-               <div data-anim-child="slide-left delay-1" class="col-lg-4 col-sm-6">
-                  <a href="#" class="blogCard -type-1 d-block ">
-                     <div class="blogCard__image">
-                        <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                           <img class="img-ratio js-lazy" src="#" data-src="img/blog/1.png" alt="image">
+               <?php
+               $ii = 1;
+               $sql = mysqli_query($con, "SELECT * FROM `blogs` LIMIT 3");
+               while ($blogs = mysqli_fetch_assoc($sql)) {
+               ?>
+                  <div data-anim-child="slide-left delay-<?= $ii++ ?>" class="col-lg-4 col-sm-6">
+
+                     <a href="blog.php?url=<?= $blogs['blog_url'] ?>" class="blogCard -type-1 d-block ">
+                        <div class="blogCard__image">
+                           <div class="ratio ratio-4:3 rounded-4 rounded-8">
+                              <img class="img-ratio js-lazy" src="#" data-src="media/blogs/<?= $blogs['image'] ?>" alt="<?= $blogs['image_alt_tag'] ?>">
+                           </div>
                         </div>
-                     </div>
-                     <div class="mt-20">
-                        <h4 class="text-dark-1 text-18 fw-500">10 European ski destinations you should visit this winter</h4>
-                        <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
-                     </div>
-                  </a>
-               </div>
-               <div data-anim-child="slide-left delay-2" class="col-lg-4 col-sm-6">
-                  <a href="#" class="blogCard -type-1 d-block ">
-                     <div class="blogCard__image">
-                        <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                           <img class="img-ratio js-lazy" src="#" data-src="img/blog/2.png" alt="image">
+
+                        <div class="mt-20">
+                           <h4 class="text-dark-1 text-18 fw-500"><?= $blogs['blog_title'] ?></h4>
+                           <div class="text-light-1 text-15 lh-14 mt-5"><?= date('F d, Y', strtotime($blogs['createdAt'])) ?></div>
                         </div>
-                     </div>
-                     <div class="mt-20">
-                        <h4 class="text-dark-1 text-18 fw-500">Booking travel during Corona: good advice in an uncertain time</h4>
-                        <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
-                     </div>
-                  </a>
-               </div>
-               <div data-anim-child="slide-left delay-3" class="col-lg-4 col-sm-6">
-                  <a href="#" class="blogCard -type-1 d-block ">
-                     <div class="blogCard__image">
-                        <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                           <img class="img-ratio js-lazy" src="#" data-src="img/blog/3.png" alt="image">
-                        </div>
-                     </div>
-                     <div class="mt-20">
-                        <h4 class="text-dark-1 text-18 fw-500">Where can I go? 5 amazing countries that are open right now</h4>
-                        <div class="text-light-1 text-15 lh-14 mt-5">April 06, 2022</div>
-                     </div>
-                  </a>
-               </div>
+                     </a>
+
+                  </div>
+               <?php } ?>
             </div>
          </div>
-      </section>
+      </section> -->
       <!-- <section class="layout-pt-md layout-pb-lg">
             <div class="container">
               <div class="row">
@@ -1975,33 +1937,7 @@
               </div>
             </div>
             </section> -->
-      <section class="layout-pt-md layout-pb-md bg-dark-2">
-         <div class="container">
-            <div class="row y-gap-30 justify-between items-center">
-               <div class="col-auto">
-                  <div class="row y-gap-20  flex-wrap items-center">
-                     <div class="col-auto">
-                        <div class="icon-newsletter text-60 sm:text-40 text-white"></div>
-                     </div>
-                     <div class="col-auto">
-                        <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
-                        <div class="text-white">Sign up and we'll send the best deals to you</div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-auto">
-                  <div class="single-field -w-410 d-flex x-gap-10 y-gap-20">
-                     <div>
-                        <input class="bg-white h-60" type="text" placeholder="Your Email">
-                     </div>
-                     <div>
-                        <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+    
       <?php include('include/footer.php') ?>
    </main>
    <?php include('include/foot.php') ?>
