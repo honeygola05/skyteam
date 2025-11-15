@@ -76,4 +76,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'saveTravellerData') {
         echo json_encode(['status_code'=> 500, "status" => "error", "message" => $e->getMessage()]);
     }
 }
+else{
+    echo json_encode(['status_code'=> 500, "status" => "error", "message" => "Invalid action"]);
+}
 ?>

@@ -126,7 +126,7 @@ function callApi($endpoint, $body){
     ];
 
     $data = json_encode($body);
-
+    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -219,6 +219,27 @@ function getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabi
     ];
 
     $response = callApi('AirSeatMap', $body);
+
+    return json_decode($response, true);
+}
+
+function getRules($shoppingResponseID, $offerID){
+    $body = [
+        'FareRulesRQ' => [
+            'Query' => [
+                'Offer' => [
+                    [
+                        'attributes' => [
+                            'ShoppingResponseId' => $shoppingResponseID,
+                            'OfferID' => $offerID
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ];
+
+    $response = callApi('AirFareRules', $body);
 
     return json_decode($response, true);
 }

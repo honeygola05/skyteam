@@ -9,27 +9,24 @@ $cabinClass             = $_GET['cabinclass'] ?? 'Y';
 $tripType               = $_GET['tripType'] ?? 'oneway';
 
 if ($shoppingResponseID !== null && $offerID !== null) {
-    // $offerDetails       = getOfferDetails($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
-    $offerDetails       = predefinedOfferPrice();
+    $offerDetails       = getOfferDetails($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+    // $offerDetails       = predefinedOfferPrice();
 
     if (isset($offerDetails['OfferPriceRS']['Success'])) {
-        $shoppingResponseID = $offerDetails['OfferPriceRS']['ShoppingResponseId'];
-        $OfferResponseId    = $offerDetails['OfferPriceRS']['OfferResponseId'];
-        $offerPricing       = $offerDetails['OfferPriceRS']['PricedOffer'];
-        $flightDetails      = $offerDetails['OfferPriceRS']['DataLists'];
-        $stops              = $flightDetails['FlightList']['Flight'][0]['Journey']['Stops'];
-        $AircarrierName     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['Name'];
-        $AircarrierCode     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['AirlineID'];
+        $shoppingResponseID = $offerDetails['OfferPriceRS']['ShoppingResponseId'] ?? [];
+        $OfferResponseId    = $offerDetails['OfferPriceRS']['OfferResponseId'] ?? [];
+        $offerPricing       = $offerDetails['OfferPriceRS']['PricedOffer'] ?? [];
+        $flightDetails      = $offerDetails['OfferPriceRS']['DataLists'] ?? [];
+        $stops              = $flightDetails['FlightList']['Flight'][0]['Journey']['Stops'] ?? [];
+        $AircarrierName     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['Name'] ?? [];
+        $AircarrierCode     = $flightDetails['FlightSegmentList']['FlightSegment'][0]['MarketingCarrier']['AirlineID'] ?? [];
 
         // seating plan api call
-        // $seatingPlan       = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
-        $seatingPlan          = predefinedSeatmap();
-        $offers               = $seatingPlan['AirSeatMapRS']['ALaCarteOffer']['ALaCarteOfferItem'];
-        $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['ColumnLayOut'];
-        $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['RowInfo'];
-        $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['WingRow'] ?? [];
-        $rows                 = $seatingPlan['AirSeatMapRS']['SeatMap'][0]['Rows'];
-        $passengersCount      = count($seatingPlan['AirSeatMapRS']['DataLists']['PassengerList']['Passengers']) ?? 0;
+        $seatingPlan       = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+        // $seatingPlan          = predefinedSeatmap();
+        $offers               = $seatingPlan['AirSeatMapRS']['ALaCarteOffer']['ALaCarteOfferItem'] ?? [];    
+        $flightList        = $seatingPlan['AirSeatMapRS']['DataLists']['FlightSegmentList']['FlightSegment'] ?? [];
+        $passengersCount      = count($seatingPlan['AirSeatMapRS']['DataLists']['PassengerList']['Passengers'] ?? []) ?? 0;
     } else {
         $error              = $offerDetails['OfferPriceRS']['Errors'];
     }
@@ -199,60 +196,103 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                 </div>
                                             </div>
                                         <?php endforeach; ?>
-                                        <div class="px-20 py-20 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4 text-center">
-                                            <div class="mt-10">
-                                                <p>Windows this side</p>
-                                                <div class="plane-wrapper">
-                                                    <div class="plane-body">
-                                                    <?php
-                                                    $totalCols = count($rows);
-
-                                                    foreach($rows as $index => $row): ?>
-                                                        <div class="seat-column">
-                                                            <?php foreach($columnLayout as $layout): ?>
-                                                            <?php if($layout['Name'] == "GAP"): ?>
-                                                            <div class='aisle'></div>
-                                                            <?php else: ?>
-                                                            <?php foreach($row['Seat'] as $seatIndex => $seat): ?>
-                                                            <?php  if($seat['Column'] == $layout['Name']): ?>
-                                                            <?php
-                                                                $PaxRef         = $seat['PaxRef'] ?? null;
-                                                                $seatOffer      = $seat['OfferItemRefs'] ?? null;
-                                                                $seatID         = $seat['SeatId'] ?? null;
-                                                                $chargable      = $seat['Chargable'] ?? '0';
-                                                                $available      = $seat['Available'] ?? '0';
-                                                                $class          = $seat['Available'] == 1 ? 'seat' : 'seat booked';
-                                                                $offerDetails   = [];
-                                                                foreach($offers as $index => $offer){
-                                                                    if($seatOffer == $offer['OfferItemID'] && $available == 1){
-                                                                        $offerDetails = $offer;
-                                                                    }
-                                                                }
-                                                            ?>
-                                                            <div class="<?= $class ?>" <?= ($available == 1) ? '' : 'disabled' ?> data-price="<?= ($available == 1) ? $offerDetails['Price']['Total']['BookingCurrencyPrice'] : '0' ?>"  data-seat="<?= $row['Number']. $seat['Column'] ?>"><?= $row['Number']. $seat['Column'] ?></div>
-                                                            <?php endif; ?>
-                                                            <?php endforeach; ?>
-                                                            <?php endif; ?>
-                                                            <?php endforeach; ?>
-                                                        </div>
-                                                    <?php endforeach; ?>
+                                        <div class="border-light rounded-4 mt-30">
+                                            <div class="py-20 px-30">
+                                                <div class="row justify-between items-center">
+                                                    <div class="col-auto">
+                                                        <div class="fw-500 text-dark-1">Select Seats(Recommended)</div>
                                                     </div>
                                                 </div>
-                                                <p>Windows this side</p>
-                                                <?php if(!empty($wingRow)){ 
-                                                    $wingStart = $wingRow['Start'];
-                                                    $wingEnd   = $wingRow['End'];
-                                                    ?>
-                                                    <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
-                                                <?php } ?>
-                                                <div class="legend">
-                                                    <span><span class="legend-box available-box"></span> Available</span>
-                                                    <span><span class="legend-box booked-box"></span> Booked</span>
-                                                    <span><span class="legend-box selected-box"></span> Selected</span>
-                                                    <span><span class="legend-box" style="background:#bfdbfe;border:1px solid #93c5fd;"></span> Wing Area</span>
+                                            </div>
+                                            <div class="border-top-light">
+                                                <div class="flight-selection-box">
+                                                    <?php foreach($flightList as $index => $flight):  ?>
+                                                    <button class="flight-seat-selector <?= $index == 0 ? 'active' : '' ?>" data-tab-target="flight-<?= $index + 1 ?>">
+                                                        <span>Flight <?= $index + 1 ?></span><br>
+                                                        <span>
+                                                            <?= $flight['Departure']['AirportCode'] ?>
+                                                            <i class="icon-arrow-right"></i>
+                                                            <?= $flight['Arrival']['AirportCode'] ?>
+                                                        </span>
+                                                    </button>
+                                                    <?php endforeach; ?>
                                                 </div>
+                                                <?php foreach($flightList as $index => $flight):  ?>
+                                                <?php 
+                                                    $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][$index]['ColumnLayOut'] ?? [];
+                                                    $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][$index]['RowInfo'] ?? [];
+                                                    $wingRow              = $seatingPlan['AirSeatMapRS']['SeatMap'][$index]['WingRow'] ?? [];
+                                                    $rows                 = $seatingPlan['AirSeatMapRS']['SeatMap'][$index]['Rows'] ?? [];    
+                                                ?>
+                                                <div class="seating-map-box <?= $index == 0 ? 'active' : '' ?>" id="flight-<?= $index + 1 ?>">
+                                                    <div class="px-20 py-20 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4 text-center">
+                                                        <?php if(!empty($rows)): ?>
+                                                        <div class="mt-10">
+                                                            <?php if (!empty($wingRow)) {
+                                                                $wingStart = $wingRow['Start'];
+                                                                $wingEnd   = $wingRow['End'];
+                                                            ?>
+                                                                <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
+                                                            <?php } ?>
+                                                            <div class="legend">
+                                                                <span><span class="legend-box available-box"></span> Available</span>
+                                                                <span><span class="legend-box booked-box"></span> Booked</span>
+                                                                <span><span class="legend-box selected-box"></span> Selected</span>
+                                                                <span><span class="legend-box" style="background:#bfdbfe;border:1px solid #93c5fd;"></span> Wing Area</span>
+                                                            </div>
+                                                            <p>Windows this side</p>
+                                                            <div class="plane-wrapper">
+                                                                <div class="plane-body">
+                                                                    <?php
+                                                                    $totalCols = count($rows);
+                                                                    
+                                                                    foreach ($rows as $index => $row): ?>
+                                                                        <div class="seat-column">
+                                                                            <?php foreach ($columnLayout as $layout): ?>
+                                                                                <?php if ($layout['Name'] == "GAP"): ?>
+                                                                                    <div class='aisle'></div>
+                                                                                <?php else: ?>
+                                                                                    <?php foreach ($row['Seat'] as $seatIndex => $seat): ?>
+                                                                                        <?php if ($seat['Column'] == $layout['Name']): ?>
+                                                                                            <?php
+                                                                                            $PaxRef         = $seat['PaxRef'] ?? null;
+                                                                                            $seatOffer      = $seat['OfferItemRefs'] ?? null;
+                                                                                            $seatID         = $seat['SeatId'] ?? null;
+                                                                                            $chargable      = $seat['Chargable'] ?? '0';
+                                                                                            $available      = $seat['Available'] ?? '0';
+                                                                                            $class          = $seat['Available'] == 1 ? 'seat' : 'seat booked';
+                                                                                            $offerDetails   = [];
+                                                                                            foreach ($offers as $index => $offer) {
+                                                                                                if ($seatOffer == $offer['OfferItemID'] && $available == 1) {
+                                                                                                    $offerDetails = $offer;
+                                                                                                }
+                                                                                            }
+                                                                                            ?>
+                                                                                            <div class="<?= $class ?>" <?= ($available == 1) ? '' : 'disabled' ?> data-price="<?= ($available == 1) ? $offerDetails['Price']['Total']['BookingCurrencyPrice'] : '0' ?>" data-seat="<?= $row['Number'] . $seat['Column'] ?>"><?= $row['Number'] . $seat['Column'] ?></div>
+                                                                                        <?php endif; ?>
+                                                                                    <?php endforeach; ?>
+                                                                                <?php endif; ?>
+                                                                            <?php endforeach; ?>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                    <p>We are currently unable to request your seats for this flight.</p>
+                                                                </div>
+                                                            </div>
+                                                            <p>Windows this side</p>
+                                                        </div>
+                                                        <?php else: ?>
+                                                            <div class="mt-10">
+                                                                <p class="text-light-1">We are currently unable to request your seats for this flight.</p>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                                <?php endforeach; ?>
+                                                <div id="seatTooltip"></div>
+
                                             </div>
                                         </div>
+
                                         <div class="border-light rounded-4 mt-30">
                                             <div class="py-20 px-30">
                                                 <div class="row justify-between items-center">
@@ -274,11 +314,11 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                             <div class="py-30 px-30 border-top-light">
                                                 <form id="travellerForm">
                                                     <?php $travellers = $adults + $children;
-                                                        for($i = 1; $i <= $travellers; $i++) { 
-                                                            $isAdult = $i <= $adults;
-                                                            $travellerType = $isAdult ? 'Adult' : 'Child';
-                                                            $index = $isAdult ? $i : $i - $adults;
-                                                        ?>
+                                                    for ($i = 1; $i <= $travellers; $i++) {
+                                                        $isAdult = $i <= $adults;
+                                                        $travellerType = $isAdult ? 'Adult' : 'Child';
+                                                        $index = $isAdult ? $i : $i - $adults;
+                                                    ?>
                                                         <div class="row <?= ($i > 1) ? 'mt-30' : '' ?>">
                                                             <h5><?= $travellerType . ' ' . $index ?></h5>
                                                             <div class="col-md-2 col-sm-12">
@@ -327,17 +367,17 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                         <div class="col-lg-3">
                                                             <?php $countryCodes = fetchCountryCodes($con); ?>
                                                             <label for="traveller-country-code" class="text-14 text-light-1">Country Code</label>
-                                                            <select class="form-select form-select-lg select2" 
-                                                                data-placeholder="Search Country Code" 
-                                                                name="traveller-country-code" 
+                                                            <select class="form-select form-select-lg select2"
+                                                                data-placeholder="Search Country Code"
+                                                                name="traveller-country-code"
                                                                 id="traveller-country-code">
-                                                            <option value="" disabled selected>Search Country Code</option>
-                                                            <?php foreach($countryCodes as $countryCode) { ?>
-                                                                <option value="<?= $countryCode['dial_code'] ?>" <?= ($countryCode['name'] == 'Canada') ? 'selected' : '' ?>>
-                                                                    <?= $countryCode['name'] ?> (<?= $countryCode['dial_code'] ?>)
-                                                                </option>
-                                                            <?php } ?>
-                                                        </select>
+                                                                <option value="" disabled selected>Search Country Code</option>
+                                                                <?php foreach ($countryCodes as $countryCode) { ?>
+                                                                    <option value="<?= $countryCode['dial_code'] ?>" <?= ($countryCode['name'] == 'Canada') ? 'selected' : '' ?>>
+                                                                        <?= $countryCode['name'] ?> (<?= $countryCode['dial_code'] ?>)
+                                                                    </option>
+                                                                <?php } ?>
+                                                            </select>
                                                         </div>
                                                         <div class="col-lg-4">
                                                             <label for="traveller-mobile-number" class="text-14 text-light-1">Mobile Number</label>
@@ -457,37 +497,6 @@ if ($shoppingResponseID !== null && $offerID !== null) {
             </div>
         </section>
 
-        <section class="layout-pt-md layout-pb-md bg-dark-2">
-            <div class="container">
-                <div class="row y-gap-30 justify-between items-center">
-                    <div class="col-auto">
-                        <div class="row y-gap-20  flex-wrap items-center">
-                            <div class="col-auto">
-                                <div class="icon-newsletter text-60 sm:text-40 text-white"></div>
-                            </div>
-
-                            <div class="col-auto">
-                                <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
-                                <div class="text-white">Sign up and we'll send the best deals to you</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-auto">
-                        <div class="single-field -w-410 d-flex x-gap-10 y-gap-20">
-                            <div>
-                                <input class="bg-white h-60" type="text" placeholder="Your Email">
-                            </div>
-
-                            <div>
-                                <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <?php include('include/footer.php') ?>
     </main>
     <?php include('include/foot.php') ?>
@@ -496,172 +505,202 @@ if ($shoppingResponseID !== null && $offerID !== null) {
 <script>
     $(document).ready(function() {
 
+        $(".flight-seat-selector").on("click", function () {
+            $(".flight-seat-selector").removeClass("active");
+            $(this).addClass("active");
+            $(".seating-map-box.active").removeClass("active");
+            const target = $(this).data("tab-target");
+            $(".flight-tab-content").removeClass("active");
+            $("#" + target).addClass("active");
+        });
+
+
         $('#traveller-country-code').select2({
             placeholder: "Search Country Code",
             allowClear: true,
             width: '100%' // ensures full-width responsiveness
         });
 
-        $('#continue').on('click', function (e) {
-        e.preventDefault();
+        $('#continue').on('click', function(e) {
+            e.preventDefault();
 
-        // Validate all forms
-        const travellerValid = validateTravellerForm();
-        const contactValid = validateContactForm();
-        const billingValid = validateBillingForm();
+            // Validate all forms
+            const travellerValid = validateTravellerForm();
+            const contactValid = validateContactForm();
+            const billingValid = validateBillingForm();
 
-        if (travellerValid && contactValid && billingValid) {
-            submitAllForms();
-        }
-    });
-
-    // ✅ Traveller form validation
-    function validateTravellerForm() {
-        const form = document.getElementById('travellerForm');
-        let isValid = true;
-
-        // Reset old errors
-        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-        form.querySelectorAll('.error').forEach(el => el.textContent = '');
-
-        const titles = form.querySelectorAll('select[name="title[]"]');
-        const firstNames = form.querySelectorAll('input[name="first-name[]"]');
-        const lastNames = form.querySelectorAll('input[name="last-name[]"]');
-        const dobs = form.querySelectorAll('input[name="dob[]"]');
-        const firstNameErrors = form.querySelectorAll('.first-name-error');
-        const lastNameErrors = form.querySelectorAll('.last-name-error');
-        const dobErrors = form.querySelectorAll('.dob-error');
-
-        firstNames.forEach((_, i) => {
-            const title = titles[i];
-            const first = firstNames[i];
-            const last = lastNames[i];
-            const dob = dobs[i];
-            const firstErr = firstNameErrors[i];
-            const lastErr = lastNameErrors[i];
-            const dobErr = dobErrors[i];
-
-            if (!title.value.trim()) {
-                title.classList.add('is-invalid');
-                isValid = false;
+            if (travellerValid && contactValid && billingValid) {
+                submitAllForms();
             }
-            if (!first.value.trim()) {
-                first.classList.add('is-invalid');
-                firstErr.textContent = 'First name is required.';
-                isValid = false;
-            }
-            if (!last.value.trim()) {
-                last.classList.add('is-invalid');
-                lastErr.textContent = 'Last name is required.';
-                isValid = false;
-            }
-            if (!dob.value) {
-                dob.classList.add('is-invalid');
-                dobErr.textContent = 'Date of birth is required.';
-                isValid = false;
-            } else {
-                const dobDate = new Date(dob.value);
-                if (dobDate > new Date()) {
-                    dob.classList.add('is-invalid');
-                    dobErr.textContent = 'Date of birth cannot be in the future.';
+        });
+
+        // ✅ Traveller form validation
+        function validateTravellerForm() {
+            const form = document.getElementById('travellerForm');
+            let isValid = true;
+
+            // Reset old errors
+            form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+            form.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+            const titles = form.querySelectorAll('select[name="title[]"]');
+            const firstNames = form.querySelectorAll('input[name="first-name[]"]');
+            const lastNames = form.querySelectorAll('input[name="last-name[]"]');
+            const dobs = form.querySelectorAll('input[name="dob[]"]');
+            const firstNameErrors = form.querySelectorAll('.first-name-error');
+            const lastNameErrors = form.querySelectorAll('.last-name-error');
+            const dobErrors = form.querySelectorAll('.dob-error');
+
+            firstNames.forEach((_, i) => {
+                const title = titles[i];
+                const first = firstNames[i];
+                const last = lastNames[i];
+                const dob = dobs[i];
+                const firstErr = firstNameErrors[i];
+                const lastErr = lastNameErrors[i];
+                const dobErr = dobErrors[i];
+
+                if (!title.value.trim()) {
+                    title.classList.add('is-invalid');
                     isValid = false;
                 }
+                if (!first.value.trim()) {
+                    first.classList.add('is-invalid');
+                    firstErr.textContent = 'First name is required.';
+                    isValid = false;
+                }
+                if (!last.value.trim()) {
+                    last.classList.add('is-invalid');
+                    lastErr.textContent = 'Last name is required.';
+                    isValid = false;
+                }
+                if (!dob.value) {
+                    dob.classList.add('is-invalid');
+                    dobErr.textContent = 'Date of birth is required.';
+                    isValid = false;
+                } else {
+                    const dobDate = new Date(dob.value);
+                    if (dobDate > new Date()) {
+                        dob.classList.add('is-invalid');
+                        dobErr.textContent = 'Date of birth cannot be in the future.';
+                        isValid = false;
+                    }
+                }
+            });
+
+            return isValid;
+        }
+
+        // ✅ Contact Details Validation
+        function validateContactForm() {
+            const form = document.getElementById('contactDetails');
+            let isValid = true;
+
+            const countryCode = $('#traveller-country-code');
+            const mobile = $('#traveller-mobile-number');
+            const email = $('#traveller-email');
+            const mobileError = $('.mobile-error');
+            const emailError = $('.email-error');
+
+            // Reset old styles
+            form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+            if (!countryCode.val()) {
+                countryCode.addClass('is-invalid');
+                isValid = false;
             }
-        });
 
-        return isValid;
-    }
-
-    // ✅ Contact Details Validation
-    function validateContactForm() {
-        const form = document.getElementById('contactDetails');
-        let isValid = true;
-
-        const countryCode = $('#traveller-country-code');
-        const mobile = $('#traveller-mobile-number');
-        const email = $('#traveller-email');
-        const mobileError = $('.mobile-error');
-        const emailError = $('.email-error');
-
-        // Reset old styles
-        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-
-        if (!countryCode.val()) {
-            countryCode.addClass('is-invalid');
-            isValid = false;
-        }
-
-        if (!mobile.val().trim() || !/^[0-9]{7,15}$/.test(mobile.val())) {
-            mobile.addClass('is-invalid');
-            mobileError.textContent = 'Please enter a valid mobile number.';
-            isValid = false;
-        }
-
-        if (!email.val().trim() || !/^\S+@\S+\.\S+$/.test(email.val())) {
-            email.addClass('is-invalid');
-            emailError.textContent = 'Please enter a valid email address.';
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    // ✅ Billing Details Validation
-    function validateBillingForm() {
-        const form = document.getElementById('billingDetails');
-        let isValid = true;
-
-        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-
-        const address = $('#billing-address');
-        const city = $('#billing-city');
-        const country = $('#traveller-country');
-        const zipcode = $('#traveller-zipcode');
-        const phone = $('#traveller-phone');
-        const addressErrror = $('.address-error');
-        const cityError = $('.city-error');
-        const countryError = $('.country-error');
-        const zipcodeError = $('.zipcode-error');
-        const phoneError = $('.phone-error');
-
-        if (!address.val().trim()) { address.addClass('is-invalid'); addressErrror.textContent = 'Address is required.'; isValid = false; }
-        if (!city.val().trim()) { city.addClass('is-invalid'); cityError.textContent = 'City is required.'; isValid = false; }
-        if (!country.val().trim()) { country.addClass('is-invalid'); countryError.textContent = 'Country is required.'; isValid = false; }
-        if (!zipcode.val().trim()) { zipcode.addClass('is-invalid'); zipcodeError.textContent = 'Zipcode is required.'; isValid = false; }
-        if (!phone.val().trim()) { phone.addClass('is-invalid'); phoneError.textContent = 'Phone is required.'; isValid = false; }
-
-        return isValid;
-    }
-
-    // ✅ AJAX Submit all forms together
-    function submitAllForms() {
-        // Combine data from all forms
-        const travellerData = $('#travellerForm').serializeArray();
-        const contactData = $('#contactDetails').serializeArray();
-        const billingData = $('#billingDetails').serializeArray();
-
-        const combinedData = [...travellerData, ...contactData, ...billingData];
-
-        $.ajax({
-            url: 'process_data.php', // change this to your endpoint
-            method: 'POST',
-            data: combinedData,
-            beforeSend: function () {
-                $('button[type="submit"]').prop('disabled', true).text('Submitting...');
-            },
-            success: function (response) {
-                alert('Form submitted successfully!');
-                console.log(response);
-            },
-            error: function (xhr) {
-                alert('Something went wrong. Please try again.');
-                console.error(xhr.responseText);
-            },
-            complete: function () {
-                $('button[type="submit"]').prop('disabled', false).text('Submit');
+            if (!mobile.val().trim() || !/^[0-9]{7,15}$/.test(mobile.val())) {
+                mobile.addClass('is-invalid');
+                mobileError.textContent = 'Please enter a valid mobile number.';
+                isValid = false;
             }
-        });
-    }
+
+            if (!email.val().trim() || !/^\S+@\S+\.\S+$/.test(email.val())) {
+                email.addClass('is-invalid');
+                emailError.textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // ✅ Billing Details Validation
+        function validateBillingForm() {
+            const form = document.getElementById('billingDetails');
+            let isValid = true;
+
+            form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+            const address = $('#billing-address');
+            const city = $('#billing-city');
+            const country = $('#traveller-country');
+            const zipcode = $('#traveller-zipcode');
+            const phone = $('#traveller-phone');
+            const addressErrror = $('.address-error');
+            const cityError = $('.city-error');
+            const countryError = $('.country-error');
+            const zipcodeError = $('.zipcode-error');
+            const phoneError = $('.phone-error');
+
+            if (!address.val().trim()) {
+                address.addClass('is-invalid');
+                addressErrror.textContent = 'Address is required.';
+                isValid = false;
+            }
+            if (!city.val().trim()) {
+                city.addClass('is-invalid');
+                cityError.textContent = 'City is required.';
+                isValid = false;
+            }
+            if (!country.val().trim()) {
+                country.addClass('is-invalid');
+                countryError.textContent = 'Country is required.';
+                isValid = false;
+            }
+            if (!zipcode.val().trim()) {
+                zipcode.addClass('is-invalid');
+                zipcodeError.textContent = 'Zipcode is required.';
+                isValid = false;
+            }
+            if (!phone.val().trim()) {
+                phone.addClass('is-invalid');
+                phoneError.textContent = 'Phone is required.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // ✅ AJAX Submit all forms together
+        function submitAllForms() {
+            // Combine data from all forms
+            const travellerData = $('#travellerForm').serializeArray();
+            const contactData = $('#contactDetails').serializeArray();
+            const billingData = $('#billingDetails').serializeArray();
+
+            const combinedData = [...travellerData, ...contactData, ...billingData];
+
+            $.ajax({
+                url: 'process_data.php', // change this to your endpoint
+                method: 'POST',
+                data: combinedData,
+                beforeSend: function() {
+                    $('button[type="submit"]').prop('disabled', true).text('Submitting...');
+                },
+                success: function(response) {
+                    alert('Form submitted successfully!');
+                    console.log(response);
+                },
+                error: function(xhr) {
+                    alert('Something went wrong. Please try again.');
+                    console.error(xhr.responseText);
+                },
+                complete: function() {
+                    $('button[type="submit"]').prop('disabled', false).text('Submit');
+                }
+            });
+        }
 
     });
 </script>
