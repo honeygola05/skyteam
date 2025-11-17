@@ -535,7 +535,13 @@ body {
   line-height: 1.875;
 }
 
-select,
+select{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
 input:not([type="range"]),
 textarea {
   border: 0;

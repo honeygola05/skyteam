@@ -8,9 +8,11 @@ $cabinClass             = $_GET['cabinclass'] ?? 'Y';
 $tripType               = $_GET['tripType'] ?? 'oneway';
 
 if ($shoppingResponseID !== null && $offerID !== null) {
-    $seatingPlan          = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+    // seating plan api call
+    $seatingPlan       = getSeatingPlan($shoppingResponseID, $offerID, $adults, $children, $cabinClass, $tripType);
+    // $seatingPlan          = predefinedSeatmap();
     $offers               = $seatingPlan['AirSeatMapRS']['ALaCarteOffer']['ALaCarteOfferItem'] ?? [];    
-    $flightDetails        = $seatingPlan['AirSeatMapRS']['DataLists']['FlightSegmentList']['FlightSegment'] ?? [];
+    $flightList        = $seatingPlan['AirSeatMapRS']['DataLists']['FlightSegmentList']['FlightSegment'] ?? [];
     $passengersCount      = count($seatingPlan['AirSeatMapRS']['DataLists']['PassengerList']['Passengers'] ?? []) ?? 0;
 } else {
     header('Location: ../');
@@ -47,7 +49,7 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                             </div>
                             <div class="border-top-light">
                                 <div class="flight-selection-box">
-                                    <?php foreach($flightDetails as $index => $flight):  ?>
+                                    <?php foreach($flightList as $index => $flight):  ?>
                                     <button class="flight-seat-selector <?= $index == 0 ? 'active' : '' ?>" data-tab-target="flight-<?= $index + 1 ?>">
                                         <span>Flight <?= $index + 1 ?></span><br>
                                         <span>
@@ -58,7 +60,7 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                     </button>
                                     <?php endforeach; ?>
                                 </div>
-                                <?php foreach($flightDetails as $index => $flight):  ?>
+                                <?php foreach($flightList as $index => $flight):  ?>
                                 <?php 
                                     $columnLayout         = $seatingPlan['AirSeatMapRS']['SeatMap'][$index]['ColumnLayOut'] ?? [];
                                     $rowInfo              = $seatingPlan['AirSeatMapRS']['SeatMap'][$index]['RowInfo'] ?? [];
@@ -67,13 +69,26 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                 ?>
                                 <div class="seating-map-box <?= $index == 0 ? 'active' : '' ?>" id="flight-<?= $index + 1 ?>">
                                     <div class="px-20 py-20 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4 text-center">
+                                        <?php if(!empty($rows)): ?>
                                         <div class="mt-10">
+                                            <?php if (!empty($wingRow)) {
+                                                $wingStart = $wingRow['Start'];
+                                                $wingEnd   = $wingRow['End'];
+                                            ?>
+                                                <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
+                                            <?php } ?>
+                                            <div class="legend">
+                                                <span><span class="legend-box available-box"></span> Available</span>
+                                                <span><span class="legend-box booked-box"></span> Booked</span>
+                                                <span><span class="legend-box selected-box"></span> Selected</span>
+                                                <span><span class="legend-box" style="background:#bfdbfe;border:1px solid #93c5fd;"></span> Wing Area</span>
+                                            </div>
                                             <p>Windows this side</p>
                                             <div class="plane-wrapper">
                                                 <div class="plane-body">
                                                     <?php
                                                     $totalCols = count($rows);
-
+                                                    
                                                     foreach ($rows as $index => $row): ?>
                                                         <div class="seat-column">
                                                             <?php foreach ($columnLayout as $layout): ?>
@@ -103,25 +118,21 @@ if ($shoppingResponseID !== null && $offerID !== null) {
                                                             <?php endforeach; ?>
                                                         </div>
                                                     <?php endforeach; ?>
+                                                    <p>We are currently unable to request your seats for this flight.</p>
                                                 </div>
                                             </div>
                                             <p>Windows this side</p>
-                                            <?php if (!empty($wingRow)) {
-                                                $wingStart = $wingRow['Start'];
-                                                $wingEnd   = $wingRow['End'];
-                                            ?>
-                                                <p class="text-light-1">Please note that seats <?= $wingStart ?> to <?= $wingEnd ?> are in the wing area of the plane.</p>
-                                            <?php } ?>
-                                            <div class="legend">
-                                                <span><span class="legend-box available-box"></span> Available</span>
-                                                <span><span class="legend-box booked-box"></span> Booked</span>
-                                                <span><span class="legend-box selected-box"></span> Selected</span>
-                                                <span><span class="legend-box" style="background:#bfdbfe;border:1px solid #93c5fd;"></span> Wing Area</span>
-                                            </div>
                                         </div>
+                                        <?php else: ?>
+                                            <div class="mt-10">
+                                                <p class="text-light-1">We are currently unable to request your seats for this flight.</p>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
+                                <div id="seatTooltip"></div>
+
                             </div>
                         </div>
                     </div>
@@ -193,6 +204,13 @@ if ($shoppingResponseID !== null && $offerID !== null) {
             const target = $(this).data("tab-target");
             $(".flight-tab-content").removeClass("active");
             $("#" + target).addClass("active");
+        });
+
+
+        $('#traveller-country-code').select2({
+            placeholder: "Search Country Code",
+            allowClear: true,
+            width: '100%' // ensures full-width responsiveness
         });
 
         $(".seat").on("mousemove", function(e) {

@@ -1429,6 +1429,15 @@
             minDate: today
         });
 
+        $('[name="dob[]"]').datepicker({
+            dateFormat: 'yy-mm-dd',
+            maxDate: today,
+            changeMonth: true,     // enables month dropdown
+            changeYear: true,      // enables year dropdown
+            yearRange: "1900:2050", // control which years to show
+            showAnim: "slideDown"
+        });
+
         // Prevent default browser datepicker
         $("input[type=date]").on('click', function (e) {
             e.preventDefault();

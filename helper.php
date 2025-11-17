@@ -244,6 +244,41 @@ function getRules($shoppingResponseID, $offerID){
     return json_decode($response, true);
 }
 
+function fetchBookingPrice($shoppingResponseID, $offerID, $adults, $children){
+    $passengerList = [];
+    for($i = 1; $i <= $adults; $i++){
+        $passengerList[] = [
+            'PassengerID' => 'T' . $i,
+            'PTC' => 'ADT'
+        ];
+    }
+    for($i = 1; $i <= $children; $i++){
+        $passengerList[] = [
+            'PassengerID' => 'T' . $i,
+            'PTC' => 'CHD'
+        ];
+    }
+    $body = [
+        'OfferPriceRQ' => [
+            'ShoppingResponseId' => $shoppingResponseID,
+            'Query' => [
+                'Offer' => [
+                    [ 'OfferID' => $offerID ]
+                ]
+            ],
+            'DataLists' => [
+                'PassengerList' => [
+                    'Passenger' => $passengerList
+                ]
+            ]
+        ]
+    ];
+
+    $response = callApi('AirOfferPrice', $body);
+
+    return json_decode($response, true);
+}
+
 function fetchCountryCodes($conn){
     $sql = "SELECT * FROM `countries`";
     $result = $conn->query($sql);
