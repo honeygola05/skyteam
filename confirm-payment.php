@@ -134,14 +134,15 @@ else{
                                                         <span class="fw-bold">Tax Price</span>
                                                         <span class="fw-bold"><?= $priceDetails[0]['TaxPrice']['BookingCurrencyPrice']; ?></span>
                                                     </li>
+                                                    <hr>
                                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                        <span class="fw-bold">Total Price</span>
-                                                        <span class="fw-bold"><?= $priceDetails[0]['TotalPrice']['BookingCurrencyPrice']; ?></span>
+                                                        <strong><span class="fw-bold">Total Price</span></strong>
+                                                        <strong><span class="fw-bold"><?= $priceDetails[0]['BookingCurrencyCode'] ?> <?= $priceDetails[0]['TotalPrice']['BookingCurrencyPrice']; ?></span></strong>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="row" style="border-top: 1px solid #ccc; margin-top: 15px;">
+                                        <div class="row" style="border-top: 1px solid #ccc; padding-top: 20px;">
                                             <div class="d-flex justify-content-center">
                                                 <button class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white" id="showPopup">Pay Now</button>
                                             </div>

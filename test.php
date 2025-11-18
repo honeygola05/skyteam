@@ -1755,125 +1755,72 @@
         </button>
       </div>
 
-      <div class="modalGrid px-30 py-30 sm:px-15 sm:py-15">
+      <div class="px-30 py-30">
         <form class="modalForm" action="#" method="POST" novalidate>
-          <!-- Cardholder Name -->
+
+          <!-- Row 1: Cardholder Name + Card Number -->
           <div class="mb-15">
             <label for="cardHolder" class="form-label">Cardholder Name</label>
             <input type="text" 
-                  name="card_holder_name" 
                   id="cardHolder" 
+                  name="card_holder_name" 
                   placeholder="John Doe" 
-                  required 
-                  autocomplete="cc-name"
+                  required
+                  pattern="^[A-Za-z ]{2,50}$"
+                  title="Only letters and spaces allowed"
                   style="padding:5px; border:1px solid #ddd; border-radius:5px;">
           </div>
 
-          <!-- Card Number, Expiry, CVV -->
-          <div class="d-flex x-gap-20 mb-15">
-            <div class="flex-1">
-              <label for="cardNumber" class="form-label">Card Number</label>
-              <input type="text" 
-                    name="card_number" 
-                    id="cardNumber" 
-                    placeholder="XXXX XXXX XXXX XXXX"
-                    required
-                    maxlength="19"
-                    inputmode="numeric"
-                    autocomplete="cc-number"
-                    style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-            </div>
+          <div class="mb-15">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input type="text" 
+                  id="cardNumber" 
+                  name="card_number" 
+                  placeholder="XXXX XXXX XXXX XXXX"
+                  required 
+                  maxlength="19"
+                  inputmode="numeric"
+                  pattern="^[0-9 ]{19}$"
+                  title="Enter a valid 16-digit card number"
+                  style="padding:5px; border:1px solid #ddd; border-radius:5px;">
+          </div>
 
-            <div class="flex-1">
+          <!-- Row 2: Expiry + CVV -->
+          <div class="row x-gap-20 mb-15">
+            <div class="col-md-6">
               <label for="expirationDate" class="form-label">Expiration (MM/YY)</label>
               <input type="text" 
-                    name="expiration_date" 
                     id="expirationDate" 
-                    placeholder="MM/YY" 
-                    required
+                    name="expiration_date"
+                    placeholder="MM/YY"
+                    required 
                     maxlength="5"
                     inputmode="numeric"
-                    autocomplete="cc-exp"
+                    pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+                    title="Enter a valid expiration date in MM/YY format"
                     style="padding:5px; border:1px solid #ddd; border-radius:5px;">
             </div>
 
-            <div class="flex-1">
+            <div class="col-md-6">
               <label for="cvv" class="form-label">CVV</label>
               <input type="text" 
-                    name="cvv" 
                     id="cvv" 
+                    name="cvv" 
                     placeholder="3–4 digits"
-                    required
+                    required 
                     maxlength="4"
                     inputmode="numeric"
-                    autocomplete="cc-csc"
+                    pattern="^[0-9]{3,4}$"
+                    title="CVV must be 3 or 4 digits"
                     style="padding:5px; border:1px solid #ddd; border-radius:5px;">
             </div>
           </div>
 
-          <!-- Billing Address (Canadian AVS) -->
-          <div class="mb-15">
-            <label for="address" class="form-label">Billing Address</label>
-            <input type="text" 
-                  name="billing_address" 
-                  id="address" 
-                  placeholder="123 Main St"
-                  required
-                  autocomplete="address-line1"
-                  style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-          </div>
-
-          <div class="d-flex x-gap-20 mb-15">
-            <div class="flex-1">
-              <label for="city" class="form-label">City</label>
-              <input type="text" 
-                    name="city" 
-                    id="city" 
-                    required
-                    autocomplete="address-level2"
-                    style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-            </div>
-            <div class="flex-1">
-              <label for="province" class="form-label">Province</label>
-              <select name="province" 
-                      id="province" 
-                      required
-                      style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-                <option value="">Select</option>
-                <option value="ON">Ontario</option>
-                <option value="QC">Quebec</option>
-                <option value="BC">British Columbia</option>
-                <option value="AB">Alberta</option>
-                <option value="MB">Manitoba</option>
-                <option value="SK">Saskatchewan</option>
-                <option value="NS">Nova Scotia</option>
-                <option value="NB">New Brunswick</option>
-                <option value="NL">Newfoundland & Labrador</option>
-                <option value="PE">Prince Edward Island</option>
-                <option value="NT">Northwest Territories</option>
-                <option value="YT">Yukon</option>
-                <option value="NU">Nunavut</option>
-              </select>
-            </div>
-            <div class="flex-1">
-              <label for="postal" class="form-label">Postal Code</label>
-              <input type="text" 
-                    name="postal_code" 
-                    id="postal" 
-                    placeholder="A1A 1A1"
-                    required
-                    maxlength="7"
-                    style="padding:5px; border:1px solid #ddd; border-radius:5px;">
-            </div>
-          </div>
-
-          <!-- Submit -->
-          <div class="d-flex justify-content-end">
+          <div class="d-flex justify-content-center">
             <button type="submit" class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white">
               Pay Securely
             </button>
           </div>
-
         </form>
       </div>
     </div>
@@ -3121,5 +3068,54 @@
 
   <script src="js/vendors.js"></script>
   <script src="js/main.js"></script>
+  <!-- *************************** -->
+  <!-- VALIDATION & FORMATTING JS -->
+  <!-- *************************** -->
+
+  <script>
+  /* Disable Copy/Paste/Cut/Drop */
+  document.querySelectorAll(".modalForm input").forEach(function (input) {
+      ["paste", "copy", "cut", "drop"].forEach(event => {
+          input.addEventListener(event, (e) => e.preventDefault());
+      });
+  });
+
+  /* CARD NUMBER AUTO-FORMAT: XXXX XXXX XXXX XXXX */
+  document.getElementById("cardNumber").addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\D/g, "").substring(0, 16);
+      value = value.replace(/(.{4})/g, "$1 ").trim();
+      e.target.value = value;
+  });
+
+  /* EXPIRY DATE: MM/YY + RESTRICT INVALID MONTHS */
+  const exp = document.getElementById("expirationDate");
+
+  exp.addEventListener("input", function(e) {
+      let v = e.target.value.replace(/\D/g, "");
+
+      // Restrict first digit
+      if (v.length === 1 && !(v[0] === "0" || v[0] === "1")) {
+          v = "";
+      }
+
+      // Prevent invalid months
+      if (v.length >= 2) {
+          const month = parseInt(v.substring(0, 2));
+          if (month < 1 || month > 12) {
+              v = v[0];
+          }
+      }
+
+      // Auto-insert slash
+      if (v.length > 2) v = v.substring(0, 2) + "/" + v.substring(2, 4);
+
+      e.target.value = v.substring(0, 5);
+  });
+
+  /* CVV: digits only */
+  document.getElementById("cvv").addEventListener("input", function (e) {
+      e.target.value = e.target.value.replace(/\D/g, "").substring(0, 4);
+  });
+  </script>
 </body>
 </html>
