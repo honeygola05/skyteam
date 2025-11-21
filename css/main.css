@@ -544,7 +544,7 @@ select{
 
 input:not([type="range"]),
 textarea {
-  border: 0;
+  border: none;
   outline: none;
   width: 100%;
   background-color: transparent;

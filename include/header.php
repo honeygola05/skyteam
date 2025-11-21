@@ -100,7 +100,7 @@ $contact = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM `info_co`"));
 </header> -->
 
 
-<header data-add-bg="" class="header bg-dark-13 js-header" data-x="header" data-x-toggle="is-menu-opened">
+<header data-add-bg="" class="header bg-white js-header" data-x="header" data-x-toggle="is-menu-opened">
     <div data-anim="fade" class="header__container px-30 sm:px-20 is-in-view">
         <div class="row justify-between items-center">
 

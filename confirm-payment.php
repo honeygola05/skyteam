@@ -1,24 +1,42 @@
 <?php
+session_start();
 require 'helper.php';
 require 'include/connection.php';
 
-$shoppingResponseID     = $_GET['shoppingid'] ?? null;
-$offerID                = $_GET['offerid'] ?? null;
-$orderID                = $_GET['orderID'] ?? null;
+$shoppingResponseID         = $_GET['shoppingid'] ?? null;
+$offerID                    = $_GET['offerid'] ?? null;
+$orderID                    = $_GET['orderID'] ?? null;
 
-$fetchOrderDetails      = "SELECT * FROM `booking_details` WHERE `order_id` = '$orderID' LIMIT 1";
-$result                 = $con->query($fetchOrderDetails);
-$bookingDetails         = $result->fetch_assoc();
+if(isset($_POST['action']) && $_POST['action'] == 'pay_now') {
+    $orderID                = $_POST['orderID'];
+    $amount                 = $_SESSION['amount'];
+    $currency               = $_SESSION['currency'];
+    $sql                    = "INSERT INTO `payment_confirmation`(`order_id`, `amount`, `currency`) VALUES ('$orderID', $amount, '$currency')";
+    if($con->query($sql)){
+        header('Location: payment/index.php?o_id='.$orderID);
+    }
+    else{
+        echo "Error: " . $sql . "<br>" . $con->error;
+    }
+}
 
-$id                     = $bookingDetails['id'];
-$fetchTravellers        = "SELECT * FROM `travellers_details` WHERE `order_id` = $id";
-$result                 = $con->query($fetchTravellers);
-$travellerDetails       = $result->fetch_all(MYSQLI_ASSOC);
+$fetchOrderDetails          = "SELECT * FROM `booking_details` WHERE `order_id` = '$orderID' LIMIT 1";
+$result                     = $con->query($fetchOrderDetails);
+$bookingDetails             = $result->fetch_assoc();
 
-$fetchPriceDetails      = fetchBookingPrice($shoppingResponseID, $offerID, $bookingDetails['adults'], $bookingDetails['children']);
+$id                         = $bookingDetails['id'];
+$fetchTravellers            = "SELECT * FROM `travellers_details` WHERE `order_id` = $id";
+$result                     = $con->query($fetchTravellers);
+$travellerDetails           = $result->fetch_all(MYSQLI_ASSOC);
+
+$fetchPriceDetails          = fetchBookingPrice($shoppingResponseID, $offerID, $bookingDetails['adults'], $bookingDetails['children']);
 if(isset($fetchPriceDetails['OfferPriceRS']['Success'])) {
-    $priceDetails       = $fetchPriceDetails['OfferPriceRS']['PricedOffer'];
-    $flightDetails      = $fetchPriceDetails['OfferPriceRS']['DataLists'];
+    $priceDetails           = $fetchPriceDetails['OfferPriceRS']['PricedOffer'];
+    $flightDetails          = $fetchPriceDetails['OfferPriceRS']['DataLists'];
+    $currency               = $priceDetails[0]['BookingCurrencyCode'];
+    $totalPrice             = $priceDetails[0]['TotalPrice']['BookingCurrencyPrice'];
+    $_SESSION['amount']     = $totalPrice;
+    $_SESSION['currency']   = $currency;
 }
 else{
     $error              = "Unable to fetch Offer Details. Please try again";
@@ -137,14 +155,18 @@ else{
                                                     <hr>
                                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                                         <strong><span class="fw-bold">Total Price</span></strong>
-                                                        <strong><span class="fw-bold"><?= $priceDetails[0]['BookingCurrencyCode'] ?> <?= $priceDetails[0]['TotalPrice']['BookingCurrencyPrice']; ?></span></strong>
+                                                        <strong><span class="fw-bold"><?= $currency ?> <?= $totalPrice; ?></span></strong>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="row" style="border-top: 1px solid #ccc; padding-top: 20px;">
                                             <div class="d-flex justify-content-center">
-                                                <button class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white" id="showPopup">Pay Now</button>
+                                                <form id="paymentForm" action="confirm-payment.php" method="post">
+                                                    <input type="hidden" name="orderID" value="<?=  $_GET['orderID'] ?>" />
+                                                    <input type="hidden" name="action" value="pay_now" />
+                                                    <button type="submit" class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white">Pay Now</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
